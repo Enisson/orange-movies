@@ -1,0 +1,64 @@
+header {
+    height: 62px;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-between;
+    max-width: 1220px;
+    height: 100%;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    margin-left: 2.5rem;
+}
+
+li a {
+    font-weight: bold;
+    color: #363231;
+}
+
+a:hover {
+    color: #FF8001;
+}
+
+form {
+    position: relative;
+}
+
+form input {
+    border: none;
+    width: 342px;
+    border-bottom: 1px solid #363231;
+    font-weight: 400;
+    outline: none;
+}
+
+form button {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    right: 0;
+    bottom: 2px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/icons/search.png);
+}
+
+form button:hover {
+    height: 16px;
+    width: 16px;
+    background-repeat: no-repeat;
+    background-image: url(../../assets/icons/search-hover.png);
+    
+}

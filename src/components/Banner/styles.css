@@ -1,0 +1,36 @@
+.banner-container {
+    display: flex;
+    align-items: center;
+    height: 300px;
+    max-width: 1220px;
+    margin: 0 auto;
+    margin-top: 20px;
+    color: white;
+    background-color: #FF8001;
+    overflow: hidden;
+}
+
+.banner-container .img-container {
+    height: 100%;
+}
+
+.banner-container .img-container img {
+    height: 100%;
+    
+}
+
+.banner-container .banner-content {
+    text-align: left;
+    margin-left: 20px;
+    
+}
+
+.banner-container .banner-content h1 {
+    margin-bottom: 10px;
+}
+
+.banner-container .banner-content p {
+    font-weight: 400;
+    height: 100px;
+    max-width: 900px;
+}

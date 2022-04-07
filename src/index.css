@@ -9,6 +9,7 @@ body {
   background: linear-gradient(180deg, #FFB802 0%, #E23B07 100%);
   background-repeat: no-repeat;
   color: #363231;
+  font-size: .8rem;
 }
 
 li {

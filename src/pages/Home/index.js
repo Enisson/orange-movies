@@ -6,6 +6,9 @@ export default function Home() {
         <div className="home">
             <Banner />
             <CarouselPopular />
+            <CarouselPopular />
+            <CarouselPopular />
+            
             <h1>Home Pag</h1>
         </div>
     );

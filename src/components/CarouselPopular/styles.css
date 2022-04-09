@@ -3,6 +3,7 @@
     padding-top: 4rem;
     background-color: white;
     margin: 0 auto;
+    position: relative; /* O position relative aqui é para o botão de slide que esta como absoluto*/
 }
 
 .popular-container .title-container {
@@ -37,6 +38,10 @@
     cursor: pointer;
 }
 
+.popular-container .title span:hover {
+    color: #FF8001;
+}
+
 .popular-container .movie-link span{
     font-weight: bold;
     padding: 18px;
@@ -57,9 +62,9 @@
 .popular-container .carousel {
     display: flex;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
-    padding: 20px 30px;
+    padding: 20px;
 }
 
 .popular-container .item {
@@ -85,4 +90,32 @@
 
 .popular-container .item .movie-title {
     font-size: .8rem;
+}
+
+/**********************************
+/* BUTTONS
+/**********************************/
+
+.popular-container .buttons button{
+    background-color: #FF8001;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.popular-container .buttons button:first-child img{
+    transform: rotate(180deg);
+
+}
+
+.popular-container .buttons button {
+    position: absolute;
+    top: 50%;
+    right: -10px;
+}
+
+.popular-container .buttons button:first-child {
+    left: -10px;
 }

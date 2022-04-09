@@ -21,11 +21,7 @@ export default function CarouselPopular() {
 
     const handleLeftClick = (e) => {
         e.preventDefault();
-        carousel.current.scrollLeft -= carousel.current.offsetWidth;
-        console.log(carousel.current.scrollLeft)
-
-        
-        
+        carousel.current.scrollLeft -= carousel.current.offsetWidth;       
     }
 
     const handleRightClick = (e) => {

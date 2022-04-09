@@ -43,6 +43,18 @@ Em seguida, faço uso de mais um useEffect pois nele terá a função a qual vai
 ![image](https://user-images.githubusercontent.com/70671093/162221573-2b66dcb4-0f30-4f66-8598-db55b1eceeb3.png)
 
 Tudo configurado, agora é hora de renderizar estas informações e para isso, através da variável de estado movie, tenho acesso as informações necessárias do filme em questão.
+
 ![image](https://user-images.githubusercontent.com/70671093/162222121-d82e27d3-b237-4c8c-b84c-3451ee944da7.png)
 
 Feito isso, estilo a página chegando então no resultado mostrado no título.
+
+### Carousel
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/162574330-a5d2c607-384e-4d03-a315-225dc1497745.gif)
+
+Para o carousel, uso a mesma ideia do banner, porém com algum ajustes. Também faço uma busca na API através do fetch e o adiciono em uma variável de estado. Porém desta vez, ao invés de mostrar somente um filme eu quero que mostre todos no carousel e para isso eu faço uso do método map(). Faço uma desestruturação para extrair somente as informações que quero da array e passo através do return.
+![image](https://user-images.githubusercontent.com/70671093/162574565-6cbe6084-09c7-4e09-9d9d-88422d8d66a4.png)
+
+Agora preciso criar os botões para passar o carousel e para funcionar eu fiz uso do hook useRef para ter como referência o elemento em questão, no caso, o carousel.
+Então eu crio uma função através do clique do usuário. Então eu passo ao meu scrollLeft o que tiver no meu offsetWidth.
+
+![image](https://user-images.githubusercontent.com/70671093/162574860-16dc1713-1e09-4562-93bb-d1e39d7cac43.png)

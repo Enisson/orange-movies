@@ -1,4 +1,4 @@
-.popular-movie-container {
+.popular-tv-container {
     max-width: 1220px;
     background-color: white;
     margin: 0 auto;
@@ -6,7 +6,7 @@
 }
 
 
-.popular-movie-container .carousel {
+.popular-tv-container .carousel {
     display: flex;
     width: 100%;
     overflow-x: hidden;
@@ -15,28 +15,28 @@
     padding-top: 0;
 }
 
-.popular-movie-container .item {
+.popular-tv-container .item {
     margin: 0 10px;
     text-align: left;
 }
 
-.popular-movie-container .item img {
+.popular-tv-container .item img {
     width: 220px;
     height: 330px;
 }
 
-.popular-movie-container .item .release {
+.popular-tv-container .item .release {
     color: #FF8001;
     font-weight: bold;
     margin-right: 1rem;
 }
 
-.popular-movie-container .item .genre {
+.popular-tv-container .item .genre {
     color: #FF8001;
     font-weight: bold;
 }
 
-.popular-movie-container .item .movie-title {
+.popular-tv-container .item .movie-title {
     font-size: .8rem;
 }
 
@@ -44,7 +44,7 @@
 /* BUTTONS
 /**********************************/
 
-.popular-movie-container .buttons button{
+.popular-tv-container .buttons button{
     background-color: transparent;
     width: 50px;
     height: 50px;
@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-.popular-movie-container .buttons button img {
+.popular-tv-container .buttons button img {
     padding: 13px 20px;
     background-color: #FF8001;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -60,17 +60,17 @@
 
 }
 
-.popular-movie-container .buttons button {
+.popular-tv-container .buttons button {
     position: absolute;
     top: 50%;
     right: -10px;
 }
 
-.popular-movie-container .buttons .arrow-left {
+.popular-tv-container .buttons .arrow-left {
     left: -10px;
 }
 
-.popular-movie-container .buttons button:active {
+.popular-tv-container .buttons button:active {
     transform: scale(1.05);
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.25);
 

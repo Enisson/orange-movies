@@ -6,7 +6,7 @@ import arrow from '../../assets/icons/arrow.png';
 import arrowLeft from '../../assets/icons/ArrowLeft.png';
 
 
-export default function CarouselPopular() {
+export default function CarouselSeries() {
 
     const [movieList, setMovieList] = useState([]);
     const carousel = useRef(null);
@@ -17,7 +17,8 @@ export default function CarouselPopular() {
     const image_path = "https://image.tmdb.org/t/p/w500";
 
     useEffect( ()=> {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apikey}&language=pt-BR&page=1`)
+        fetch(`
+        https://api.themoviedb.org/3/tv/popular?api_key=${apikey}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => setMovieList(data.results));
 
@@ -69,17 +70,17 @@ export default function CarouselPopular() {
     }
 
     return(
-        <div className="popular-movie-container">      
+        <div className="popular-tv-container">      
             <div className="carousel" ref={carousel}>
                 {movieList.map( movie => {
-                    const {id, title, poster_path, genre_ids} = movie;
+                    const {id, name, poster_path, genre_ids} = movie;
                     
                     return (                    
                     <div className="item" key={id}>
-                        <img src={`${image_path}${poster_path}`} alt={title} />
+                        <img src={`${image_path}${poster_path}`} alt={name} />
                         <span className="release">ano</span>
                         <span className="genre">{genre_ids}</span>
-                        <h2 className="movie-title">{movie.title}</h2>
+                        <h2 className="movie-title">{movie.name}</h2>
                     </div>
                     );
                 })}

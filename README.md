@@ -49,7 +49,8 @@ Tudo configurado, agora é hora de renderizar estas informações e para isso, a
 Feito isso, estilo a página chegando então no resultado mostrado no título.
 
 ### Carousel
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/162574330-a5d2c607-384e-4d03-a315-225dc1497745.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/162632070-e39ccef5-d124-4396-a396-ee9f53233d50.gif)
+
 
 Para o carousel, uso a mesma ideia do banner, porém com algum ajustes. Também faço uma busca na API através do fetch e o adiciono em uma variável de estado. Porém desta vez, ao invés de mostrar somente um filme eu quero que mostre todos no carousel e para isso eu faço uso do método map(). Faço uma desestruturação para extrair somente as informações que quero da array e passo através do return.
 ![image](https://user-images.githubusercontent.com/70671093/162574565-6cbe6084-09c7-4e09-9d9d-88422d8d66a4.png)
@@ -58,3 +59,12 @@ Agora preciso criar os botões para passar o carousel e para funcionar eu fiz us
 Então eu crio uma função através do clique do usuário. Então eu passo ao meu scrollLeft o que tiver no meu offsetWidth.
 
 ![image](https://user-images.githubusercontent.com/70671093/162574860-16dc1713-1e09-4562-93bb-d1e39d7cac43.png)
+
+Para fazer os botões do carousel desaparecem quando não tiver mais conteúdo no scroll, primeiro, criei um contador utilizando o useRef com o valor de zero e passei para o useEffect mantendo o mesmo valor. Criei mais dois useRef, um para cada flecha.  O atributo ref(), passei para os botões e as flechas dentro deles.
+
+![image](https://user-images.githubusercontent.com/70671093/162632323-3113c14e-acd1-45a5-a86d-2f547e522b8d.png)
+
+A lógica usada aqui foi bem simples, através do evento de clique, cada vez que o usuário clicar na flecha para a direita o contador vai aumentar e o inverso para a flecha da esquerda e passei essa lógica para as funções de clique.
+
+![image](https://user-images.githubusercontent.com/70671093/162632542-ff6c74ea-3665-44bf-9064-7276487e3b6d.png)
+![image](https://user-images.githubusercontent.com/70671093/162632520-4d503780-8529-4668-a1bb-3289dc7c7ee9.png)

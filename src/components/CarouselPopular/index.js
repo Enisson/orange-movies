@@ -3,12 +3,16 @@ import { apikey } from "../../config/Key";
 import './styles.css';
 
 import arrow from '../../assets/icons/arrow.png';
+import arrowLeft from '../../assets/icons/ArrowLeft.png';
 
 
 export default function CarouselPopular() {
 
     const [movieList, setMovieList] = useState([]);
     const carousel = useRef(null);
+    const leftArrow = useRef(null);
+    const rightArrow = useRef(null);
+    const count = useRef(0);
 
     const image_path = "https://image.tmdb.org/t/p/w500";
 
@@ -17,18 +21,52 @@ export default function CarouselPopular() {
         .then(response => response.json())
         .then(data => setMovieList(data.results));
 
+        count.current = 0;    
+
+        if(count.current <= 0) {
+            leftArrow.current.style.display = 'none';
+        }
+
     }, [] );
 
     const handleLeftClick = (e) => {
         e.preventDefault();
-        carousel.current.scrollLeft -= carousel.current.offsetWidth;       
+        carousel.current.scrollLeft -= carousel.current.offsetWidth;   
+        
+        count.current = count.current -1;
+        
+        if(count.current <= 0) {
+            leftArrow.current.style.display = 'none';
+        }
+
+        if(count.current <= 2) {
+            rightArrow.current.style.display = 'block';
+
+        }
+        console.log(count.current)
     }
+
+
 
     const handleRightClick = (e) => {
         e.preventDefault();
         carousel.current.scrollLeft += carousel.current.offsetWidth;
-    }
 
+        count.current = count.current +1;
+
+
+        if(count.current >= 3) {
+            rightArrow.current.style.display = 'none';
+        }
+
+        if(count.current >= 1) {
+            leftArrow.current.style.display = 'block';
+
+        }
+
+        console.log(count.current)
+
+    }
 
     return(
         <div className="popular-container">
@@ -59,13 +97,13 @@ export default function CarouselPopular() {
             </div>
 
             <div className="buttons">
-                <button onClick={handleLeftClick} className="arrow-left">
-                    <img src={arrow} alt="arrow icon" />
-                </button>
-                <button onClick={handleRightClick} className="arrow-right">
-                    <img src={arrow} alt="arrow icon" />
-                </button>
                 
+                <button ref={count} onClick={handleLeftClick} className="arrow-left">
+                    <img ref={leftArrow}  src={arrowLeft} alt="arrow icon" />
+                </button>
+                <button ref={count}  onClick={handleRightClick} className="arrow-right">
+                    <img ref={rightArrow}  src={arrow} alt="arrow icon" />
+                </button>                
             </div>
         </div>
     );

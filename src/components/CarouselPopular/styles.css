@@ -97,16 +97,18 @@
 /**********************************/
 
 .popular-container .buttons button{
-    background-color: #FF8001;
+    background-color: transparent;
     width: 50px;
     height: 50px;
     border: none;
     cursor: pointer;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.popular-container .buttons button:first-child img{
-    transform: rotate(180deg);
+.popular-container .buttons button img {
+    padding: 13px 20px;
+    background-color: #FF8001;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 
 }
 
@@ -116,6 +118,12 @@
     right: -10px;
 }
 
-.popular-container .buttons button:first-child {
+.popular-container .buttons .arrow-left {
     left: -10px;
+}
+
+.popular-container .buttons button:active {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.25);
+
 }

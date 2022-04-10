@@ -46,7 +46,7 @@ Tudo configurado, agora é hora de renderizar estas informações e para isso, a
 
 ![image](https://user-images.githubusercontent.com/70671093/162222121-d82e27d3-b237-4c8c-b84c-3451ee944da7.png)
 
-Feito isso, estilo a página chegando então no resultado mostrado no título.
+Feito isso, estilizo a página chegando então no resultado mostrado no título.
 
 ### Carousel
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/162632070-e39ccef5-d124-4396-a396-ee9f53233d50.gif)
@@ -68,3 +68,7 @@ A lógica usada aqui foi bem simples, através do evento de clique, cada vez que
 
 ![image](https://user-images.githubusercontent.com/70671093/162632542-ff6c74ea-3665-44bf-9064-7276487e3b6d.png)
 ![image](https://user-images.githubusercontent.com/70671093/162632520-4d503780-8529-4668-a1bb-3289dc7c7ee9.png)
+
+E para deixar a flecha escondida logo quando a página é renderizada, no useEffect fiz uma condição a qual, se o contador for menor ou igual a zero (Que é o valor que ele vai estar assim que a página renderizar), não mostrar a flecha.
+
+![image](https://user-images.githubusercontent.com/70671093/162632706-36c4d418-3f79-4357-8c96-7428f847e4f9.png)

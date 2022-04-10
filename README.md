@@ -49,7 +49,8 @@ Tudo configurado, agora é hora de renderizar estas informações e para isso, a
 Feito isso, estilizo a página chegando então no resultado mostrado no título.
 
 ### Carousel
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/162632070-e39ccef5-d124-4396-a396-ee9f53233d50.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/70671093/162636733-829007e8-0c9e-406c-8621-8fe630ecc4bd.gif)
+
 
 
 Para o carousel, uso a mesma ideia do banner, porém com algum ajustes. Também faço uma busca na API através do fetch e o adiciono em uma variável de estado. Porém desta vez, ao invés de mostrar somente um filme eu quero que mostre todos no carousel e para isso eu faço uso do método map(). Faço uma desestruturação para extrair somente as informações que quero da array e passo através do return.
@@ -72,3 +73,5 @@ A lógica usada aqui foi bem simples, através do evento de clique, cada vez que
 E para deixar a flecha escondida logo quando a página é renderizada, no useEffect fiz uma condição a qual, se o contador for menor ou igual a zero (Que é o valor que ele vai estar assim que a página renderizar), não mostrar a flecha.
 
 ![image](https://user-images.githubusercontent.com/70671093/162632706-36c4d418-3f79-4357-8c96-7428f847e4f9.png)
+
+Já para alternar entre filmes e séries, optei por

@@ -33,10 +33,7 @@ export default function Home() {
                     <h1>Files em cartaz</h1>
                     <span>ver mais</span>
                 </div>
-                <div className="movie-link">
-                    <span className={`gener ${isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(true)}>Filmes</span>
-                    <span className={`gener ${!isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(false)}>Séries</span>
-                </div>
+                
             </div>
             
             <CarouselPopular />
@@ -46,10 +43,7 @@ export default function Home() {
                     <h1>Tendências da semana</h1>
                     <span>ver mais</span>
                 </div>
-                <div className="movie-link">
-                    <span className={`gener ${isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(true)}>Filmes</span>
-                    <span className={`gener ${!isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(false)}>Séries</span>
-                </div>
+                
             </div>
             <CarouselPopular />
             

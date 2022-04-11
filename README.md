@@ -74,4 +74,10 @@ E para deixar a flecha escondida logo quando a página é renderizada, no useEff
 
 ![image](https://user-images.githubusercontent.com/70671093/162632706-36c4d418-3f79-4357-8c96-7428f847e4f9.png)
 
-Já para alternar entre filmes e séries, optei por
+Já para alternar entre filmes e séries, optei por separar cada categoria em componentes, sendo CarouselPopular para os filmes e CarouselSeries para as séries. Dupliquei o Carousel que tinha feito e coloquei em ambos os componentes, porém buscando na api as categorias correspondentes. E chamei ambos os componentes na página principal através do operador ternário. Criei uma variável de estado booleana chamada "isMovie" que, sendo verdadeira renderizar CaruselPopular(filmes) e falso renderizar CarouselSeries.
+
+![image](https://user-images.githubusercontent.com/70671093/162782496-f452101d-8748-4d1e-8a9d-ee600236fba6.png)
+
+Agora para fazer trocar através da opção selecionada, criei uma função que através do clique mudava para verdadeiro ou falso o "isMovie" e para indicar qual estava selecionado, fiz uso do operador ternário de novo só que para adicionar ou remover uma class.
+
+![image](https://user-images.githubusercontent.com/70671093/162783015-dac3ec27-49dc-4471-89f5-2719580ce536.png)

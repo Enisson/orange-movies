@@ -44,7 +44,6 @@ export default function CarouselSeries() {
             rightArrow.current.style.display = 'block';
 
         }
-        console.log(count.current)
     }
 
 
@@ -64,23 +63,44 @@ export default function CarouselSeries() {
             leftArrow.current.style.display = 'block';
 
         }
-
-        console.log(count.current)
-
     }
 
     return(
         <div className="popular-tv-container">      
             <div className="carousel" ref={carousel}>
                 {movieList.map( movie => {
-                    const {id, name, poster_path, genre_ids} = movie;
+                    const {id, name, poster_path, vote_average, first_air_date, genre_ids} = movie;
+
+                    let moviePop = vote_average;
+                    let strMovie = moviePop.toFixed(1);
+                    let firstN = strMovie.slice(0,1);
+                    let lastN = strMovie.slice(-1);
+                    let movieConcat = `${firstN}.${lastN}`;
+                    let moviePopularity = parseFloat(movieConcat);
+
+                    let className = "movie-popularity"
+
+                    if(moviePopularity <= 5) {
+                        className = "movie-less";
+                    };
+                    if (moviePopularity >= 7) {
+                        className = "movie-high";
+                    };
+
+                    
+
+                    let date = first_air_date;
+                    let splitStr = date.split("-");
+                    let releaseDate = splitStr.slice(0,1);
+                    
                     
                     return (                    
                     <div className="item" key={id}>
                         <img src={`${image_path}${poster_path}`} alt={name} />
-                        <span className="release">ano</span>
+                        <span className="release">{releaseDate}</span>
                         <span className="genre">{genre_ids}</span>
                         <h2 className="movie-title">{movie.name}</h2>
+                        <span className={className}>{moviePopularity}</span>
                     </div>
                     );
                 })}

@@ -18,6 +18,7 @@
 .popular-movie-container .item {
     margin: 0 10px;
     text-align: left;
+    position: relative;
 }
 
 .popular-movie-container .item img {
@@ -38,6 +39,40 @@
 
 .popular-movie-container .item .movie-title {
     font-size: .8rem;
+}
+
+.popular-movie-container .item .movie-popularity {
+    position: absolute;
+    bottom: 55px;
+    right: -5px;
+    background-color: #FFB802;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.popular-movie-container .item .movie-less {
+    background-color: #E23B07;
+    position: absolute;
+    bottom: 55px;
+    right: -5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.popular-movie-container .item .movie-high {
+    background-color: #16C632;
+    position: absolute;
+    bottom: 55px;
+    right: -5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 /**********************************
@@ -62,7 +97,7 @@
 
 .popular-movie-container .buttons button {
     position: absolute;
-    top: 50%;
+    top: 35%;
     right: -10px;
 }
 

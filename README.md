@@ -49,7 +49,8 @@ Tudo configurado, agora é hora de renderizar estas informações e para isso, a
 Feito isso, estilizo a página chegando então no resultado mostrado no título.
 
 ### Carousel
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/70671093/162636733-829007e8-0c9e-406c-8621-8fe630ecc4bd.gif)
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/70671093/162980585-b739c5cd-8fef-4975-826c-05e46f09527b.gif)
+
 
 
 
@@ -81,3 +82,12 @@ Já para alternar entre filmes e séries, optei por separar cada categoria em co
 Agora para fazer trocar através da opção selecionada, criei uma função que através do clique mudava para verdadeiro ou falso o "isMovie" e para indicar qual estava selecionado, fiz uso do operador ternário de novo só que para adicionar ou remover uma class.
 
 ![image](https://user-images.githubusercontent.com/70671093/162783015-dac3ec27-49dc-4471-89f5-2719580ce536.png)
+
+Para colocar a nota de avalização de cada filme, busquei a nota do filme da api e passei através do map para uma span. Como a nota veio como float, para mudar a cor de acordo com a nota de cada filme, criei duas variáveis, uma para armazenar a nota e a outra a className. A Lógica aqui foi, se a nota for menor ou igual a 5, a variável className receber a string "movie-less", caso fosse maior ou igual a 7, receber a string "movie-high".
+
+![image](https://user-images.githubusercontent.com/70671093/162979159-a55c96ef-676b-4880-b6f7-e0088a4f63d6.png)
+
+passei essa variável className como atributo da propriedade className. Depois, no CSS fiz as estilizações de cada classe.
+![image](https://user-images.githubusercontent.com/70671093/162980113-c7b02602-b033-4812-ab76-13b1beb9c24d.png)
+
+![image](https://user-images.githubusercontent.com/70671093/162979892-642951ca-8f76-4d38-9208-85330578f9e1.png)

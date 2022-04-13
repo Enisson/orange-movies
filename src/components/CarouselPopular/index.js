@@ -44,7 +44,6 @@ export default function CarouselPopular() {
             rightArrow.current.style.display = 'block';
 
         }
-        console.log(count.current)
     }
 
 
@@ -64,43 +63,66 @@ export default function CarouselPopular() {
             leftArrow.current.style.display = 'block';
 
         }
-
-        console.log(count.current)
-
     }
 
     return(
         <div className="popular-movie-container">      
             <div className="carousel" ref={carousel}>
                 {movieList.map( movie => {
-                    const {id, title, poster_path, genre_ids, vote_average, release_date} = movie;
 
+                    const genre = [
+                        {id:28, name:"Ação"},
+                        {id:27, name:"Terror"},
+                        {id:16, name:"Animação"},
+                        {id:12, name:"Aventura"},
+                        {id:35, name:"Comédia"},
+                        {id:80, name:"Crime"},
+                        {id:99, name:"Documentário"},
+                        {id:18, name:"Drama"},
+                        {id:10751, name:"Família"},
+                        {id:14, name:"Fantasia"},
+                        {id:36, name:"História"},
+                        {id:10402, name:"Música"},
+                        {id:9648, name:"Mistério"},
+                        {id:10749, name:"Romance"},
+                        {id:878, name:"Ficção científica"},
+                        {id:10770, name:"Cinema TV"},
+                        {id:53, name:"Thriller"},
+                        {id:10752, name:"Guerra"},
+                        {id:37, name:"Faroeste"},
+                    ]
+
+                    const {id, title, poster_path, genre_ids, vote_average, release_date} = movie;
+                    
                     let moviePop = vote_average;
-                    let strMovie = moviePop.toFixed(1);
-                    let firstN = strMovie.slice(0,1);
-                    let lastN = strMovie.slice(-1);
-                    let moviePopularity = `${firstN}.${lastN}`;
 
                     let className = "movie-popularity"
 
-                    if(moviePopularity <= 5) {
+                    if(moviePop <= 5) {
                         className = "movie-less";
                     };
-                    if (moviePopularity >= 7) {
+                    if (moviePop >= 7) {
                         className = "movie-high";
                     };
 
                     let date = release_date;
                     let splitStr = date.split("-");
                     let releaseDate = splitStr.slice(0,1);
+
+                    let movieL;
+                    genre.map(item => {
+                        if(item.id === genre_ids[0]){
+                            movieL = item.name;
+                        }
+                    })
                     
                     return (                    
                     <div className="item" key={id}>
                         <img src={`${image_path}${poster_path}`} alt={title} />
                         <span className="release">{releaseDate}</span>
-                        <span className="genre">{genre_ids}</span>
+                        <span className="genre">{movieL}</span>
                         <h2 className="movie-title">{movie.title}</h2>
-                        <span className={className}>{moviePopularity}</span>
+                        <span className={className}>{vote_average}</span>
                         
                     </div>
                     );

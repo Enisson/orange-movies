@@ -26,11 +26,15 @@ export default function Banner() {
         const callMovie = async () => {
             const randomMovie = await movieList[Math.floor(Math.random() * movieList.length)];
 
+            let date = randomMovie.release_date;
+            let splitStr = date.split("-");
+            let releaseDate = splitStr.slice(0,1);
+
             const pickMovie = {
                 title: randomMovie.title,
                 sinopse: randomMovie.overview,
-                image: `${image_path}${randomMovie.poster_path}`,
-                release: randomMovie.release_date
+                image: `${image_path}${randomMovie.backdrop_path}`,
+                release: releaseDate
             }
             setMovie(pickMovie);
         }
@@ -42,6 +46,8 @@ export default function Banner() {
 
     if(!loading) {
 
+        
+
         return (
             <div className='banner-container'>
                 <div className='img-container'>
@@ -50,7 +56,7 @@ export default function Banner() {
     
                 <div className='banner-content'>
                     <h1>{movie.title}</h1>
-                    <h2>{movie.sinopse ? movie.sinopse : <p>Humm... Parece que estamos sem a legenda deste filme no momento :/</p>}</h2>
+                    <h2>{movie.sinopse ? movie.sinopse : <p>Humm... Parece que estamos sem a sinopse deste filme no momento :/</p>}</h2>
                     <span>{movie.release}</span>
                 </div>
             </div>

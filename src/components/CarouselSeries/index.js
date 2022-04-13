@@ -69,6 +69,29 @@ export default function CarouselSeries() {
         <div className="popular-tv-container">      
             <div className="carousel" ref={carousel}>
                 {movieList.map( movie => {
+
+                    const genre = [
+                        {id:28, name:"Ação"},
+                        {id:27, name:"Terror"},
+                        {id:16, name:"Animação"},
+                        {id:12, name:"Aventura"},
+                        {id:35, name:"Comédia"},
+                        {id:80, name:"Crime"},
+                        {id:99, name:"Documentário"},
+                        {id:18, name:"Drama"},
+                        {id:10751, name:"Família"},
+                        {id:14, name:"Fantasia"},
+                        {id:36, name:"História"},
+                        {id:10402, name:"Música"},
+                        {id:9648, name:"Mistério"},
+                        {id:10749, name:"Romance"},
+                        {id:878, name:"Ficção científica"},
+                        {id:10770, name:"Cinema TV"},
+                        {id:53, name:"Thriller"},
+                        {id:10752, name:"Guerra"},
+                        {id:37, name:"Faroeste"},
+                    ]
+
                     const {id, name, poster_path, vote_average, first_air_date, genre_ids} = movie;
 
                     let moviePop = vote_average;
@@ -92,13 +115,20 @@ export default function CarouselSeries() {
                     let date = first_air_date;
                     let splitStr = date.split("-");
                     let releaseDate = splitStr.slice(0,1);
+
+                    let movieL;
+                    genre.map(item => {
+                        if(item.id === genre_ids[0]){
+                            movieL = item.name;
+                        }
+                    })
                     
                     
                     return (                    
                     <div className="item" key={id}>
                         <img src={`${image_path}${poster_path}`} alt={name} />
                         <span className="release">{releaseDate}</span>
-                        <span className="genre">{genre_ids}</span>
+                        <span className="genre">{movieL}</span>
                         <h2 className="movie-title">{movie.name}</h2>
                         <span className={className}>{moviePopularity}</span>
                     </div>

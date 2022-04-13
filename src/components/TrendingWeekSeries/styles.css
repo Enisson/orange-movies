@@ -1,0 +1,112 @@
+.trending-container {
+    max-width: 1220px;
+    background-color: white;
+    margin: 0 auto;
+    position: relative; /* O position relative aqui é para o botão de slide que esta como absoluto*/
+}
+
+
+.trending-container .carousel {
+    display: flex;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 20px;
+    padding-top: 0;
+}
+
+.trending-container .item {
+    margin: 0 10px;
+    text-align: left;
+    position: relative;
+}
+
+.trending-container .item img {
+    width: 220px;
+    height: 330px;
+}
+
+.trending-container .item .release {
+    color: #FF8001;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.trending-container .item .genre {
+    color: #FF8001;
+    font-weight: bold;
+}
+
+.trending-container .item .movie-title {
+font-size: .8rem;
+}
+
+.trending-container .item .tv-popularity {
+    position: absolute;
+    bottom: 36px;
+    right: -5px;
+    background-color: #FFB802;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.trending-container .item .tv-less {
+    background-color: #E23B07;
+    position: absolute;
+    bottom: 36px;
+    right: -5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.trending-container .item .tv-high {
+    background-color: #16C632;
+    position: absolute;
+    bottom: 36px;
+    right: -5px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+/**********************************
+/* BUTTONS
+/**********************************/
+
+.trending-container .buttons button{
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.trending-container .buttons button img {
+    padding: 13px 20px;
+    background-color: #FF8001;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+}
+
+.trending-container .buttons button {
+    position: absolute;
+    top: 35%;
+    right: -10px;
+}
+
+.trending-container .buttons .arrow-left {
+    left: -10px;
+}
+
+.trending-container .buttons button:active {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.25);
+
+}

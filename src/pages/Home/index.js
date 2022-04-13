@@ -2,6 +2,9 @@ import { useState } from "react";
 import Banner from "../../components/Banner";
 import CarouselPopular from "../../components/CarouselPopular";
 import CarouselSeries from "../../components/CarouselSeries";
+import NowPlaying from "../../components/NowPlaying";
+import TrendingWeekMovie from "../../components/TrendingWeekMovie";
+import TrendingWeekSeries from "../../components/TrendingWeekSeries";
 
 
 
@@ -36,18 +39,19 @@ export default function Home() {
                 
             </div>
             
-            <CarouselPopular />
+            <NowPlaying />
 
             <div className="title-container">
                 <div className="title">
                     <h1>Tendências da semana</h1>
                     <span>ver mais</span>
                 </div>
-                
+                <div className="movie-link">
+                    <span className={`gener ${isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(true)}>Filmes</span>
+                    <span className={`gener ${!isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(false)}>Séries</span>
+                </div>
             </div>
-            <CarouselPopular />
-            
-            <h1>Home Pag</h1>
+            {isMovie ? <TrendingWeekMovie /> : <TrendingWeekSeries />}
         </div>
     );
 }

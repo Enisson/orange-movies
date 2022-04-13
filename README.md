@@ -30,7 +30,8 @@ Design do site, logo e paleta de cores desenvolvidos por mim através do editor 
 
 ### Banner
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/162218787-9fcbff61-1fa6-4dcb-8204-19d592511412.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/70671093/163178931-c2d8d8ed-e368-4a1d-9c3c-ae266b4e618a.gif)
+
 
 Para criar o banner sendo atualizado toda vez que a página atualiza eu fiz uso dos hooks useState e useEffect. 
  Primeiro, criei duas váriaveis de estado; uma que irá conter a lista de filmes e a outra a qual irá conter o filme que será renderizado na página.
@@ -49,7 +50,8 @@ Tudo configurado, agora é hora de renderizar estas informações e para isso, a
 Feito isso, estilizo a página chegando então no resultado mostrado no título.
 
 ### Carousel
-![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/70671093/162980585-b739c5cd-8fef-4975-826c-05e46f09527b.gif)
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/70671093/163179324-a7311e46-62ea-4c38-8b37-cf4f520cb355.gif)
+
 
 
 

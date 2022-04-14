@@ -117,10 +117,13 @@ export default function TrendingWeekMovie() {
 
 
                     let movieL;
-                    genre.map(item => {
+                    genre.map((item, index) => {
                         if(item.id === genre_ids[0]){
                             movieL = item.name;
                         }
+                        return (
+                            index
+                        )
                     })
                     
                     

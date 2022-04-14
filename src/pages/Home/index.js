@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "../../components/Banner";
 import CarouselPopular from "../../components/CarouselPopular";
 import CarouselSeries from "../../components/CarouselSeries";
+import Newsletter from "../../components/Newsletter";
 import NowPlaying from "../../components/NowPlaying";
 import TrendingWeekMovie from "../../components/TrendingWeekMovie";
 import TrendingWeekSeries from "../../components/TrendingWeekSeries";
@@ -52,6 +53,8 @@ export default function Home() {
                 </div>
             </div>
             {isMovie ? <TrendingWeekMovie /> : <TrendingWeekSeries />}
+
+            <Newsletter />
         </div>
     );
 }

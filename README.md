@@ -93,3 +93,9 @@ passei essa variável className como atributo da propriedade className. Depois, 
 ![image](https://user-images.githubusercontent.com/70671093/162980113-c7b02602-b033-4812-ab76-13b1beb9c24d.png)
 
 ![image](https://user-images.githubusercontent.com/70671093/162979892-642951ca-8f76-4d38-9208-85330578f9e1.png)
+
+### Trailers no site
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/70671093/163848867-3b9a9b53-f8ff-417f-b0f8-0430e3134659.gif)
+
+Para adicionar trailers no site, criei outro componente com o nome de trailers e nele fiz uma busca na api; utilizando o useEffect, através do id do filme e pra isso, novamente fiz uso do fetch. O filme que será recebido através das props mais tarde, irei armazenar em um hook de estado chamado trailers. 
+Então eu crio uma span que receberá o trailer do youtube e a imagem de thumbnail. Então crio outra variável de estado chamada click com o valor de false que, ao clicar em span, chama uma função que irá fazer o toogle desta variável entre true e false. Então faço uso do operador ternário para saber se este clique esta true ou false, sendo true, ele mostra o trailer, sendo false mostra a thumbnail (imagem que irei buscar através das props). Agora importo este component no component Newsletter e neste componente eu busco pelos os filmes em cartazes no cinema, faço um map destes filmes e passo o component Trailers para ser retornado e neste momento, passo as informações de cada filme em questão que será adicionado no componente Trailer.

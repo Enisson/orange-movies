@@ -14,6 +14,7 @@ import './styles.css';
 export default function Home() {
 
     const [isMovie, setIsMovie] = useState(true);
+    const [isTvShow, setIsTvShow] = useState(true);
 
 
     return (
@@ -48,11 +49,12 @@ export default function Home() {
                     <span>ver mais</span>
                 </div>
                 <div className="movie-link">
-                    <span className={`gener ${isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(true)}>Filmes</span>
-                    <span className={`gener ${!isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(false)}>Séries</span>
+                    <span className={`gener ${isTvShow ? "gener-active" : "gener"}`} onClick={()=> setIsTvShow(true)}>Filmes</span>
+                    <span className={`gener ${!isTvShow ? "gener-active" : "gener"}`} onClick={()=> setIsTvShow(false)}>Séries</span>
                 </div>
             </div>
-            {isMovie ? <TrendingWeekMovie /> : <TrendingWeekSeries />}
+            
+            {isTvShow ? <TrendingWeekMovie /> : <TrendingWeekSeries />}
 
             <Newsletter />
         </div>

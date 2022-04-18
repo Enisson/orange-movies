@@ -19,7 +19,9 @@ export default function CarouselPopular() {
     useEffect( ()=> {
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apikey}&language=pt-BR&page=1`)
         .then(response => response.json())
-        .then(data => setMovieList(data.results));
+        .then(data => {
+            setMovieList(data.results)
+        });
 
 
         count.current = 0;    

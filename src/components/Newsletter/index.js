@@ -1,10 +1,25 @@
 import './styles.css';
 
-import actress from '../../assets/actors/actress.png';
-import trailer from '../../assets/batman.png';
 import TopActors from '../TopActors';
+import Trailers from '../Trailers';
+import { useEffect, useState } from 'react';
+import { apikey } from '../../config/Key';
 
 export default function Newsletter() {
+
+    const [movieList, setMovieList] = useState([]);
+
+    const image_path = "https://image.tmdb.org/t/p/w500";
+
+    useEffect( ()=> {
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apikey}&language=pt-BR&page=1`)
+        .then(response => response.json())
+        .then(data => {
+            setMovieList(data.results)
+        });
+
+    }, []);
+
     return (
         <div className='newsletter-container'>
 
@@ -19,34 +34,23 @@ export default function Newsletter() {
                         <TopActors />
                 </div>
                 <div className='trailers-container'>
-                    <h2>Trailers</h2>
+                    <h2>Últimos Trailers</h2>
+
+
                     <div className='trailers'>
-                        <div className='first-trailer'>
-                            <img src={trailer} alt="trailer" />
-                            <div>
-                                <h4>Batman</h4>
-                                <span>Após a perda de seus pais, Bruce Wayne...</span>
-                                <p>Bruce Wayne é um jovem bilionário da cidade de Gotham City, Nova Jersey, que também age secretamente como o vigilante noturno Batman após o assassinato dos seus pais.</p>
-                                <button>Ver mais</button>
-                            </div>
-                        </div>
-                        <div className='more-trailers'>
-                            <div className='trailer'>
-                                <img src={trailer} alt="trailer" />
-                                <h4>Batman</h4>
-                                <span>Após a perda de seus pais, Bruce Wayne...</span>
-                            </div>
-                            <div className='trailer'>
-                                <img src={trailer} alt="trailer" />
-                                <h4>Batman</h4>
-                                <span>Após a perda de seus pais, Bruce Wayne...</span>
-                            </div>
-                            <div className='trailer'>
-                                <img src={trailer} alt="trailer" />
-                                <h4>Batman</h4>
-                                <span>Após a perda de seus pais, Bruce Wayne...</span>
-                            </div>
-                        </div>
+
+                        
+
+                            {movieList.map( (movie, index) => {
+
+                                const { id, title, overview, backdrop_path } = movie;
+                                if (index < 3) 
+                                return (   
+                                    <div key={id} className="movie">
+                                        <Trailers id={id} img={`${image_path}${backdrop_path}`} name={title} sinopse={overview} />  
+                                    </div>
+                                )
+                            } )}
                     </div>
                 </div>
             </div>

@@ -38,63 +38,8 @@
     max-width: 690px;
 }
 
-.newsletter-container .trailers-container h2 {
-    margin-bottom: 30px;
-    font-weight: 500;
-}
-
-.newsletter-container .trailers-container .first-trailer {
-    position: relative;
+.newsletter-container .trailers-container .trailers {
     display: flex;
-}
-
-.newsletter-container .trailers-container .first-trailer div {
-    padding-left: 15px;
-    max-width: 276px;
-}
-
-.newsletter-container .trailers-container .first-trailer img {
-    width: 400px;
-}
-
-.newsletter-container .trailers-container .first-trailer h4 {
-    margin-bottom: 4px;
-}
-
-.newsletter-container .trailers-container .first-trailer p {
-    margin-top: 20px;
-}
-
-.newsletter-container .trailers-container .first-trailer button {
-    position: absolute;
-    bottom: 0;
-    background-color: transparent;
-    border: none;
-    color: white;
-    border-bottom: 2px solid white;
-    cursor: pointer;
-}
-
-.newsletter-container .trailers-container .first-trailer button:hover {
-    color: #38D934;
-    border-bottom: 2px solid #38D934;
-}
-
-.newsletter-container .trailers-container span {
-    color: #38D934;
-    font-weight: 400;
-}
-
-.newsletter-container .trailers-container img {
-    width: 212px;
-}
-
-.newsletter-container .trailers-container .more-trailers {
-    display: flex;
-    margin-top: 20px;
-    width: 212px;
-}
-
-.newsletter-container .trailers-container .more-trailers .trailer + .trailer {
-    margin-left: 20px;
+    flex-wrap: wrap;
+    
 }

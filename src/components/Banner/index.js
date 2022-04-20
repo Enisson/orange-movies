@@ -8,7 +8,7 @@ export default function Banner() {
     const [movie, setMovie] = useState({});
     const [loading, setLoading] = useState(true)
     
-    const image_path = "https://image.tmdb.org/t/p/w500";
+    const image_path = "https://image.tmdb.org/t/p/original";
 
 
     useEffect( ()=> {

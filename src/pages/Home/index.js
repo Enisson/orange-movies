@@ -35,7 +35,7 @@ export default function Home() {
 
             <div className="title-container">
                 <div className="title">
-                    <h1>Files em cartaz</h1>
+                    <h1>Filmes em cartaz</h1>
                     <span>ver mais</span>
                 </div>
                 

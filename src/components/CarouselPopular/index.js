@@ -4,6 +4,7 @@ import './styles.css';
 
 import arrow from '../../assets/icons/arrow.png';
 import arrowLeft from '../../assets/icons/ArrowLeft.png';
+import { Link } from "react-router-dom";
 
 
 export default function CarouselPopular() {
@@ -120,7 +121,9 @@ export default function CarouselPopular() {
                     
                     return (                    
                     <div className="item" key={id}>
-                        <img src={`${image_path}${poster_path}`} alt={title} />
+                        <Link to={`/details/${id}`}>
+                            <img src={`${image_path}${poster_path}`} alt={title} />
+                        </Link>
                         <span className="release">{releaseDate}</span>
                         <span className="genre">{movieL}</span>
                         <h2 className="movie-title">{movie.title}</h2>

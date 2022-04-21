@@ -6,12 +6,15 @@ import timer from '../../assets/icons/timer.svg';
 import fav from '../../assets/icons/heart.svg';
 import './styles.css'
 import SimilarMovies from "../../components/SimilarMovies";
+import MovieCredits from "../../components/MovieCredits";
 
 export default function Details() {
 
     const { id } = useParams();
     
     const [movie, setMovie] = useState({});
+    const [genre, setGenre] = useState([]);
+    const [releaseDate, setReleaseDate] = useState();
     const image_path = "https://image.tmdb.org/t/p/original";
     const image_path500 = "https://image.tmdb.org/t/p/w500";
 
@@ -20,7 +23,6 @@ export default function Details() {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apikey}&language=pt-BR`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
 
             const { title, tagline, vote_average, release_date, poster_path, overview, genres, backdrop_path, runtime, vote_count } = data;
 
@@ -36,8 +38,14 @@ export default function Details() {
                 runtime,
                 voteCount: vote_count
             }
-
+            setGenre(movie.genres);
             setMovie(movie);
+
+            let release = movie.releaseDate;
+            let splitStr = release.split("-");
+            let replaceStr = splitStr.reverse();
+            let releaseDta = replaceStr.join("/");
+            setReleaseDate(releaseDta);
         })
         
     }, [id])
@@ -93,8 +101,28 @@ export default function Details() {
                     <span className="tagline">{movie.tagline}</span>
                     <span className="favorite"><img src={fav} alt="favorite" /></span>
                 </div>
+            </div>
 
-                <div className="movie-overview-container">
+            <div className="movie-overview-container">
+                <ul className="movie-description">
+                    <li className="movie-description-genre">
+                        <h3>Gênero</h3>
+                        <ul>
+                            {
+                                genre.map( item => {
+                                    return <li key={item.id}>{item.name}</li>
+                                })
+                            }
+                        </ul>
+                    </li>
+
+                    <MovieCredits id={id}/>
+                    
+                    <li>
+                        <h3>Ano de lançamento</h3>
+                        <p>{releaseDate}</p>
+                    </li>
+                </ul>
                     <div className="movie-overview">
                         <h2>Sinopse</h2>
                         <p>{movie.sinopse}</p>
@@ -107,7 +135,6 @@ export default function Details() {
                         <SimilarMovies id={id}/>
                     </div>
                 </div>
-            </div>
         </div>
     );
 }

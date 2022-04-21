@@ -10,7 +10,7 @@ export default function SimilarMovies({id}) {
     const [movies, setMovies] = useState([]);
 
     useEffect( ()=> {
-        fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apikey}&language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apikey}&language=pt-BR&page=1`)
         .then(res => res.json())
         .then(data => {
             setMovies(data.results)            

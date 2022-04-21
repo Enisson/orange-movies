@@ -12,7 +12,7 @@ export default function MovieCredits({id}) {
             console.log(data.crew)
             setCrew(data.crew)
         })
-    }, [] )
+    }, [id] )
 
     let directors = [];
     let writer = [];

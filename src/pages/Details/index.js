@@ -5,6 +5,7 @@ import { apikey } from "../../config/Key";
 import timer from '../../assets/icons/timer.svg';
 import fav from '../../assets/icons/heart.svg';
 import './styles.css'
+import SimilarMovies from "../../components/SimilarMovies";
 
 export default function Details() {
 
@@ -12,6 +13,7 @@ export default function Details() {
     
     const [movie, setMovie] = useState({});
     const image_path = "https://image.tmdb.org/t/p/original";
+    const image_path500 = "https://image.tmdb.org/t/p/w500";
 
 
     useEffect(  () => {
@@ -28,7 +30,7 @@ export default function Details() {
                 voteAverage: vote_average,
                 releaseDate: release_date,
                 sinopse: overview,
-                poster: `${image_path}${poster_path}`,
+                poster: `${image_path500}${poster_path}`,
                 backPoster: `${image_path}${backdrop_path}`,
                 genres,
                 runtime,
@@ -90,6 +92,20 @@ export default function Details() {
                     </div>
                     <span className="tagline">{movie.tagline}</span>
                     <span className="favorite"><img src={fav} alt="favorite" /></span>
+                </div>
+
+                <div className="movie-overview-container">
+                    <div className="movie-overview">
+                        <h2>Sinopse</h2>
+                        <p>{movie.sinopse}</p>
+                    </div>
+                    <div className="movie-similar">
+                        <span>
+                            <h2>Similares</h2>
+                        </span>
+
+                        <SimilarMovies id={id}/>
+                    </div>
                 </div>
             </div>
         </div>

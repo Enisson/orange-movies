@@ -1,0 +1,20 @@
+.movie-cast .cast {
+    width: 665px;
+    overflow-x: hidden;
+    
+}
+
+.movie-cast .cast li {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.movie-cast .cast li img {
+    width: 125px;
+}
+
+.movie-cast .cast li .name {
+    font-weight: 500;
+    font-size: 15px;
+}

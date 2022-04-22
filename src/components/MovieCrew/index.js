@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { apikey } from "../../config/Key";
 
-export default function MovieCredits({id}) {
+export default function MovieCrew({id}) {
 
     const [crew, setCrew] = useState([]);
 
@@ -9,7 +9,6 @@ export default function MovieCredits({id}) {
         fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apikey}&language=pt-BR`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.crew)
             setCrew(data.crew)
         })
     }, [id] )
@@ -30,8 +29,6 @@ export default function MovieCredits({id}) {
         }
         
     })
-
-    console.log(writer)
 
     return (
         <>

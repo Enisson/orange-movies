@@ -6,7 +6,9 @@ import timer from '../../assets/icons/timer.svg';
 import fav from '../../assets/icons/heart.svg';
 import './styles.css'
 import SimilarMovies from "../../components/SimilarMovies";
-import MovieCredits from "../../components/MovieCredits";
+import MovieCrew from "../../components/MovieCrew";
+import MovieCast from "../../components/MovieCast";
+import Trailers from "../../components/Trailers";
 
 export default function Details() {
 
@@ -116,7 +118,7 @@ export default function Details() {
                         </ul>
                     </li>
 
-                    <MovieCredits id={id}/>
+                    <MovieCrew id={id}/>
                     
                     <li>
                         <h3>Ano de lançamento</h3>
@@ -134,7 +136,20 @@ export default function Details() {
 
                         <SimilarMovies id={id}/>
                     </div>
+
+                    <div className="movie-cast">
+                        <h2>Elenco Principal</h2>
+
+                        <MovieCast id={id} />
+                    </div>
+
+                    <div className="trailer">
+                        <h2>Assista ao trailer</h2>
+
+                        <Trailers id={id} img={`${image_path}${movie.backPoster}`}/>
+                    </div>
                 </div>
+
         </div>
     );
 }

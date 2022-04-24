@@ -11,7 +11,7 @@ import MovieCast from "../../components/MovieCast";
 import Trailers from "../../components/Trailers";
 
 
-export default function Details() {
+export default function DetailsTv() {
 
     const { id } = useParams();
     
@@ -27,14 +27,14 @@ export default function Details() {
 
 
     useEffect(  () => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apikey}&language=pt-BR`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${apikey}&language=pt-BR`)
         .then(res => res.json())
         .then(data => {
-
-            const { title, tagline, vote_average, release_date, poster_path, overview, genres, backdrop_path, runtime, vote_count } = data;
+            console.log(data)
+            const { name, tagline, vote_average, release_date, poster_path, overview, genres, backdrop_path, runtime, vote_count } = data;
 
             const movie = {
-                title,
+                name,
                 tagline,
                 voteAverage: vote_average,
                 releaseDate: release_date,
@@ -87,18 +87,18 @@ export default function Details() {
     return(
         <div className="details-container">
             <div className="backposter">
-                <img src={movie.backPoster} alt={movie.title} />
+                <img src={movie.backPoster} alt={movie.name} />
             </div>
             <div className="movie-info">
                 <div className="movie-poster">
-                    <img src={movie.poster} alt={movie.title} />
+                    <img src={movie.poster} alt={movie.name} />
                 </div>
 
                 <div className="movie-details">
                     <span className="movie-release-date">2022</span>
-                    <h2 className="movie-title">{movie.title}</h2>
+                    <h2 className="movie-title">{movie.name}</h2>
                     <span className="runtime">
-                        <img src={timer} alt={movie.title}/>
+                        <img src={timer} alt={movie.name}/>
                         {convertTimer()}
                     </span>
                     <div className="vote-container">
@@ -123,7 +123,7 @@ export default function Details() {
                         </ul>
                     </li>
 
-                    <MovieCrew id={id}/>
+                    {/* <MovieCrew id={id}/> */}
                     
                     <li>
                         <h3>Ano de lançamento</h3>
@@ -139,13 +139,13 @@ export default function Details() {
                             <h2>Similares</h2>
                         </span>
 
-                        <SimilarMovies id={id}/>
+                        {/* <SimilarMovies id={id}/> */}
                     </div>
 
                     <div className="movie-cast" >
                         <h2>Elenco Principal</h2>
 
-                        <MovieCast id={id} />                        
+                        {/* <MovieCast id={id} />                         */}
                     </div>
 
                     <div className="trailer">

@@ -175,6 +175,7 @@
 .details-container .movie-overview-container .movie-cast {
     grid-area: 3 / 1;
     text-align: left;
+    position: relative;
 }
 
 .details-container .movie-overview-container .movie-cast h2,
@@ -217,3 +218,4 @@
 .details-container .trailer h2 {
     margin-top: 50px;
 }
+

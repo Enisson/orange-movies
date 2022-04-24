@@ -4,6 +4,7 @@ import './styles.css';
 
 import arrow from '../../assets/icons/arrow.png';
 import arrowLeft from '../../assets/icons/ArrowLeft.png';
+import { Link } from "react-router-dom";
 
 
 export default function CarouselSeries() {
@@ -126,7 +127,9 @@ export default function CarouselSeries() {
                     
                     return (                    
                     <div className="item" key={id}>
-                        <img src={`${image_path}${poster_path}`} alt={name} />
+                        <Link to={`/details/tv/${id}`}>
+                            <img src={`${image_path}${poster_path}`} alt={name} />
+                        </Link>
                         <span className="release">{releaseDate}</span>
                         <span className="genre">{movieL}</span>
                         <h2 className="movie-title">{movie.name}</h2>

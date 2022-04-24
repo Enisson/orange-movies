@@ -4,6 +4,7 @@ import './styles.css';
 
 import arrow from '../../assets/icons/arrow.png';
 import arrowLeft from '../../assets/icons/ArrowLeft.png';
+import { Link } from "react-router-dom";
 
 
 export default function NowPlaying() {
@@ -126,7 +127,9 @@ export default function NowPlaying() {
                     
                     return (                    
                     <div className="item" key={id}>
-                        <img src={`${image_path}${poster_path}`} alt={title} />
+                        <Link to={`/details/movie/${id}`}>
+                            <img src={`${image_path}${poster_path}`} alt={title} />
+                        </Link>
                         <span className="release">{releaseDate}</span>
                         <span className="genre">{movieL}</span>
                         <h2 className="movie-title">{title}</h2>

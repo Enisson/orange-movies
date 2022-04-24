@@ -121,7 +121,7 @@ export default function CarouselPopular() {
                     
                     return (                    
                     <div className="item" key={id}>
-                        <Link to={`/details/${id}`}>
+                        <Link to={`/details/movie/${id}`}>
                             <img src={`${image_path}${poster_path}`} alt={title} />
                         </Link>
                         <span className="release">{releaseDate}</span>

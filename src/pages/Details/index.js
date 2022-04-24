@@ -18,7 +18,7 @@ export default function Details() {
     const [movie, setMovie] = useState({});
     const [genre, setGenre] = useState([]);
     const [releaseDate, setReleaseDate] = useState();
-    
+    const [releaseDateY, setReleaseDateY] = useState();
 
 
 
@@ -53,6 +53,7 @@ export default function Details() {
             let replaceStr = splitStr.reverse();
             let releaseDta = replaceStr.join("/");
             setReleaseDate(releaseDta);
+            setReleaseDateY(splitStr[2]);
         })
         
     }, [id])
@@ -95,7 +96,7 @@ export default function Details() {
                 </div>
 
                 <div className="movie-details">
-                    <span className="movie-release-date">2022</span>
+                    <span className="movie-release-date">{releaseDateY}</span>
                     <h2 className="movie-title">{movie.title}</h2>
                     <span className="runtime">
                         <img src={timer} alt={movie.title}/>

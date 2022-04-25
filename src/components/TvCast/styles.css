@@ -47,7 +47,7 @@
 }
 
 .movie-cast .buttons .arrow-left {
-    left: 0;
+    left: 0px;
 }
 
 .movie-cast .buttons button:active {

@@ -9,6 +9,9 @@ import SimilarMovies from "../../components/SimilarMovies";
 import MovieCrew from "../../components/MovieCrew";
 import MovieCast from "../../components/MovieCast";
 import Trailers from "../../components/Trailers";
+import SimilarTv from "../../components/SimilarTv";
+import TvCast from "../../components/TvCast";
+import TvTrailers from "../../components/Trailers/tvTrailers";
 
 
 export default function DetailsTv() {
@@ -17,7 +20,10 @@ export default function DetailsTv() {
     
     const [movie, setMovie] = useState({});
     const [genre, setGenre] = useState([]);
+    const [created, setCreated] = useState();
+    const [networks, setNetworks] = useState([]);
     const [releaseDate, setReleaseDate] = useState();
+    const [releaseDateY, setReleaseDateY] = useState();
     
 
 
@@ -31,42 +37,42 @@ export default function DetailsTv() {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            const { name, tagline, vote_average, release_date, poster_path, overview, genres, backdrop_path, runtime, vote_count } = data;
+            const { name, tagline, created_by,networks, vote_average, first_air_date, poster_path, overview, genres, backdrop_path, episode_run_time, vote_count, number_of_episodes, number_of_seasons } = data;
 
             const movie = {
                 name,
                 tagline,
+                networks,
+                created: created_by,
                 voteAverage: vote_average,
-                releaseDate: release_date,
+                releaseDate: first_air_date,
                 sinopse: overview,
                 poster: `${image_path500}${poster_path}`,
                 backPoster: `${image_path}${backdrop_path}`,
                 genres,
-                runtime,
+                episodes: number_of_episodes,
+                seasons: number_of_seasons,
+                runtime: episode_run_time,
                 voteCount: vote_count
             }
             setGenre(movie.genres);
             setMovie(movie);
+            setCreated(movie.created[0].name);
+
+            const network = {
+                name: movie.networks[0].name,
+            }
+            setNetworks(network);
 
             let release = movie.releaseDate;
             let splitStr = release.split("-");
             let replaceStr = splitStr.reverse();
             let releaseDta = replaceStr.join("/");
             setReleaseDate(releaseDta);
+            setReleaseDateY(splitStr[2])
         })
         
     }, [id])
-    
-    const convertTimer = () => {
-        const t = movie.runtime;
-
-        const h = Math.floor(t / 60);
-        const m = Math.floor(t % 3600 / 60);
-
-        const hDisplay = `${h}h ${m}m`;
-
-        return hDisplay;
-    }
 
     let className = "movie-popularity"
     
@@ -95,11 +101,11 @@ export default function DetailsTv() {
                 </div>
 
                 <div className="movie-details">
-                    <span className="movie-release-date">2022</span>
+                    <span className="movie-release-date">{releaseDateY}</span>
                     <h2 className="movie-title">{movie.name}</h2>
                     <span className="runtime">
                         <img src={timer} alt={movie.name}/>
-                        {convertTimer()}
+                        {`${movie.runtime} min`}
                     </span>
                     <div className="vote-container">
                         <span  className={moviePop()}>{movie.voteAverage}</span>
@@ -123,8 +129,27 @@ export default function DetailsTv() {
                         </ul>
                     </li>
 
-                    {/* <MovieCrew id={id}/> */}
-                    
+                    <li>
+                        <h3>Criado por</h3>
+                        {created}
+                    </li>
+
+                    <li>
+                        <h3>Total de Episódios</h3>
+                        <ul>
+                            <li>
+                                {movie.episodes !== 1 ? `${movie.episodes} episódios` : `${movie.episodes} episódio`}
+                            </li>
+                            <li>
+                                {movie.seasons !== 1 ? `/ ${movie.seasons} temporadas` : `/ ${movie.seasons} temporada`}
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>Emissora</h3>
+                        {networks.name}
+                    </li>
+
                     <li>
                         <h3>Ano de lançamento</h3>
                         <p>{releaseDate}</p>
@@ -139,19 +164,20 @@ export default function DetailsTv() {
                             <h2>Similares</h2>
                         </span>
 
-                        {/* <SimilarMovies id={id}/> */}
+                        {<SimilarTv id={id}/>}
                     </div>
 
                     <div className="movie-cast" >
                         <h2>Elenco Principal</h2>
 
-                        {/* <MovieCast id={id} />                         */}
+                        {<TvCast id={id}/>}
                     </div>
 
                     <div className="trailer">
                         <h2>Assista ao trailer</h2>
 
-                        <Trailers id={id} img={`${image_path}${movie.backPoster}`}/>
+                        <TvTrailers id={id} img={`${image_path}${movie.backPoster}`}/>
+                        
                     </div>
                 </div>
 

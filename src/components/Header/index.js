@@ -1,15 +1,15 @@
 import './styles.css';
 
 import Logo from '../../assets/Logo.png';
-import { Link } from 'react-router-dom';
+
 
 export default function Header() {
     return (
         <header>
             <div className="header-content">
-                <Link to={"/"}>
+                <a href='/'>
                     <img src={Logo} alt="Orange movies"/>
-                </Link>
+                </a>
                 <nav className='menubar'>
                     <ul>
                         <li>

@@ -28,7 +28,7 @@ export default function SimilarTv({id}) {
 
                     return (
                         <li key={id}>
-                            <Link to={`/details/${id}`}>
+                            <Link to={`/details/tv/${id}`}>
                                <img src={`${image_path}${poster_path}`} alt={title}/>
                             </Link>
                         </li>

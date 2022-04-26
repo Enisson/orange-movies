@@ -1,0 +1,136 @@
+.movies-container {
+    max-width: 1220px;
+    background-color: white;
+    margin: 0 auto;
+    display: flex;
+}
+
+.movies-container .filter {
+    margin-top: 30px;
+    width: 230px;
+    height: 100%;
+    margin-right: 10px;
+    background-color: #FF8001;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: white;
+    text-align: left;
+    padding: 20px;
+}
+
+.movies-container .filter form label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.movies-container .filter form select {
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid white;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.movies-container .filter .filter-genrer {
+    width: 190px;
+}
+
+.movies-container .filter .filter-genrer h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+}
+
+.movies-container .filter .filter-genrer-list {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.movies-container .filter .filter-genrer-list li {
+    margin: 5px 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.movies-container .filter .filter-genrer-list li:hover {
+    background-color: #E23B07;
+}
+
+
+.movies-container .carousel {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    padding-left: 0;    
+}
+
+.movies-container .item {
+    width: 220px;
+    height: 398px;
+    margin: 10px;
+    text-align: left;
+    position: relative;
+}
+
+.movies-container .item img {
+    width: 220px;
+    height: 330px;
+}
+
+.movies-container .item .release {
+    color: #FF8001;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.movies-container .item .genre {
+    color: #FF8001;
+    font-weight: bold;
+}
+
+.movies-container .item .movie-title {
+    font-size: .8rem;
+}
+
+.movies-container .item .movie-popularity {
+    position: absolute;
+    bottom: 64px;
+    right: -4px;
+    background-color: #FFB802;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.movies-container .item .movie-less {
+    position: absolute;
+    background-color: #E23B07;
+    position: absolute;
+    bottom: 64px;
+    right: -4px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.movies-container .item .movie-high {
+    position: absolute;
+    background-color: #16C632;
+    position: absolute;
+    bottom: 64px;
+    right: -4px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+

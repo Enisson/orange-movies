@@ -27,7 +27,7 @@ export default function SimilarMovies({id}) {
 
                     return (
                         <li key={id}>
-                            <Link to={`/details/${id}`}>
+                            <Link to={`/details/movie/${id}`}>
                                <img src={`${image_path}${poster_path}`} alt={title}/>
                             </Link>
                         </li>

@@ -1,6 +1,7 @@
 import './styles.css';
 
 import Logo from '../../assets/Logo.png';
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
@@ -13,10 +14,10 @@ export default function Header() {
                 <nav className='menubar'>
                     <ul>
                         <li>
-                            <a href="/">Filmes</a>
+                            <Link to={"/movies"}>Filmes</Link>
                         </li>
                         <li>
-                            <a href="/">Séries</a>
+                            <Link to={"/tv"}>Séries</Link>
                         </li>
                         <li>
                             <a href="/">Sobre</a>

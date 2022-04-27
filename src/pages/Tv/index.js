@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import BannerTv from "../../components/Banner";
+import BannerTv from "../../components/BannerTv";
 import { apikey } from "../../config/Key";
 
 import './styles.css';
@@ -109,7 +109,7 @@ export default function Tv() {
                     
                     return (                    
                     <div className="item" key={id}>
-                        <Link to={`/details/movie/${id}`}>
+                        <Link to={`/details/tv/${id}`}>
                             <img src={`${image_path}${poster_path}`} alt={name} />
                         </Link>
                         <span className="release">{releaseDate}</span>

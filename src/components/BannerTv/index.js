@@ -11,9 +11,9 @@ export default function BannerTv() {
 
 
     useEffect( ()=> {
-        fetch(`https://api.themoviedb.org/3/tv/top_rated?api_key=${apikey}&language=pt-BR&page=1`)
+        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${apikey}&language=pt-BR&page=1`)
         .then (response => response.json())
-        .then(data => console.log(data))
+        .then(data => setTvList(data.results))
 
     }, [] )
 

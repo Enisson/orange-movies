@@ -20,7 +20,7 @@ export default function Header() {
                             <Link to={"/tv"}>Séries</Link>
                         </li>
                         <li>
-                            <a href="/">Sobre</a>
+                            <Link to={"/about"}>Sobre</Link>
                         </li>
                     </ul>
                 </nav>

@@ -1,0 +1,44 @@
+.about-container {
+    max-width: 1220px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 10rem;
+}
+
+.about-container h1, 
+.about-container h2 {
+    background-color: #FF8001;
+    font-size: 1.5rem;
+    padding: 5px;
+    color: white;
+    width: 490px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.about-container .about-orange {
+    font-weight: bold;
+    font-size: 2rem;
+    max-width: 970px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.about-container .about-me {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+}
+
+.about-container .contact {
+    margin-bottom: 2rem;
+}
+
+.about-container .email {
+    padding-bottom: 2rem;
+}
+
+.about-container .email a {
+    color: #FF8001;
+}

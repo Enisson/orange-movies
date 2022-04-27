@@ -5,10 +5,6 @@ import { apikey } from "../../config/Key";
 import timer from '../../assets/icons/timer.svg';
 import fav from '../../assets/icons/heart.svg';
 import './styles.css'
-import SimilarMovies from "../../components/SimilarMovies";
-import MovieCrew from "../../components/MovieCrew";
-import MovieCast from "../../components/MovieCast";
-import Trailers from "../../components/Trailers";
 import SimilarTv from "../../components/SimilarTv";
 import TvCast from "../../components/TvCast";
 import TvTrailers from "../../components/Trailers/tvTrailers";
@@ -30,6 +26,10 @@ export default function DetailsTv() {
 
     const image_path = "https://image.tmdb.org/t/p/original";
     const image_path500 = "https://image.tmdb.org/t/p/w500";
+
+    const onTop = () => {
+        window.scrollTo(0,0);
+    };
 
 
     useEffect(  () => {
@@ -72,6 +72,8 @@ export default function DetailsTv() {
             setReleaseDateY(splitStr[2])
         })
         
+        onTop();
+
     }, [id])
 
     let className = "movie-popularity"

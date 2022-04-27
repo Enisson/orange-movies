@@ -25,6 +25,10 @@ export default function Details() {
     const image_path = "https://image.tmdb.org/t/p/original";
     const image_path500 = "https://image.tmdb.org/t/p/w500";
 
+    const onTop = () => {
+        window.scrollTo(0,0);
+    };
+
 
     useEffect(  () => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apikey}&language=pt-BR`)
@@ -55,6 +59,8 @@ export default function Details() {
             setReleaseDate(releaseDta);
             setReleaseDateY(splitStr[2]);
         })
+
+        onTop();
         
     }, [id])
     

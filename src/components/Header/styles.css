@@ -42,7 +42,7 @@ form input {
     outline: none;
 }
 
-form button {
+form a {
     position: absolute;
     height: 16px;
     width: 16px;

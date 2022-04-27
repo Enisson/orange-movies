@@ -2,9 +2,21 @@ import './styles.css';
 
 import Logo from '../../assets/Logo.png';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { apikey } from '../../config/Key';
 
 
 export default function Header() {
+
+    const [inputValorList, setInputValorList] = useState('');
+    const [inputValor, setInputValor] = useState('');    
+
+
+    const inputHandle = () => {
+        // e.preventDefault();
+        setInputValor(inputValorList);
+    }
+
     return (
         <header>
             <div className="header-content">
@@ -25,8 +37,8 @@ export default function Header() {
                     </ul>
                 </nav>
                 <form>
-                    <input placeholder='Pesquisar...'/>
-                    <button></button>
+                    <input onChange={(e) => {setInputValorList(e.target.value)}}  placeholder='Pesquisar...'/>
+                    <Link to={'/search'} onClick={inputHandle}></Link>
                 </form>
                 <nav className='userpanel'>
                     <ul>

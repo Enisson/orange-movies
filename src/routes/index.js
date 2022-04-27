@@ -7,6 +7,7 @@ import DetailsTv from "../pages/Details/tv";
 
 import Home from "../pages/Home";
 import Movie from "../pages/Movie";
+import Search from "../pages/Search";
 import Tv from "../pages/Tv";
 
 
@@ -17,6 +18,7 @@ export default function AllRoutes() {
             <Route path="/movies" element={<Movie />} />
             <Route path="/tv" element={<Tv />} />
             <Route path="/about" element={<About />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/details/movie/:id" element={<Details />} />
             <Route path="/details/tv/:id" element={<DetailsTv />} />
         </Routes>

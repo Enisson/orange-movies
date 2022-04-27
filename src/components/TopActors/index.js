@@ -14,6 +14,7 @@ export default function TopActors() {
         fetch(`https://api.themoviedb.org/3/person/popular?api_key=${apikey}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => {
+            console.log(data.results)
             setProfileActor(data.results);
         });
     }, [] )
@@ -30,7 +31,6 @@ export default function TopActors() {
                                     <img src={`${image_path}${profile_path}`} alt={name}/>
                                 </div>
                                 <h3>{name}</h3>
-                                <span>Ver mais</span>
                             </li>    
                  );
                 }

@@ -1,0 +1,53 @@
+form {
+    margin-top: 0;
+    width: 500px;
+    height: 21px;
+    z-index: 99;
+    overflow: hidden;
+    background-color: white;
+}
+
+form:focus-within {
+    height: 340px;
+    margin-top: 20rem;
+    overflow-y: auto;
+
+}
+
+form input {
+    border: none;
+    width: 342px;
+    border-bottom: 1px solid #363231;
+    font-weight: 400;
+    outline: none;
+}
+
+
+
+form ul {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border: 1px solid rgb(219, 219, 219);
+    height: 150px;
+    padding-right: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+form img {
+    width: 100px;
+    margin-right: 1rem;
+}
+
+form span {
+    color: #FF8001;
+}
+
+form p {
+    height: 50px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-top: 1.5rem;
+}

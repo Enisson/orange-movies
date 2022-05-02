@@ -2,22 +2,21 @@ import './styles.css';
 
 import Logo from '../../assets/Logo.png';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { apikey } from '../../config/Key';
+import { useState } from 'react';
+import Search from '../../pages/Search';
+import SearchInput from '../SearchInput/SearchInput';
+import { SearchBtnProvider } from '../../contexts/SearchBtn';
+
+
+
 
 
 export default function Header() {
 
-    const [inputValorList, setInputValorList] = useState('');
-    const [inputValor, setInputValor] = useState('');    
-
-
-    const inputHandle = () => {
-        // e.preventDefault();
-        setInputValor(inputValorList);
-    }
+    const [test, setTest] = useState();
 
     return (
+        <SearchBtnProvider>
         <header>
             <div className="header-content">
                 <a href='/'>
@@ -36,10 +35,7 @@ export default function Header() {
                         </li>
                     </ul>
                 </nav>
-                <form>
-                    <input onChange={(e) => {setInputValorList(e.target.value)}}  placeholder='Pesquisar...'/>
-                    <Link to={'/search'} onClick={inputHandle}></Link>
-                </form>
+                <SearchInput />
                 <nav className='userpanel'>
                     <ul>
                         <li>
@@ -50,5 +46,6 @@ export default function Header() {
             </div>
             
         </header>
+        </SearchBtnProvider>
     );
 }

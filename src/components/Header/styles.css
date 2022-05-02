@@ -30,7 +30,7 @@ a:hover {
     color: #FF8001;
 }
 
-form {
+/* form {
     position: relative;
 }
 
@@ -40,9 +40,9 @@ form input {
     border-bottom: 1px solid #363231;
     font-weight: 400;
     outline: none;
-}
+} */
 
-form a {
+/* form a {
     position: absolute;
     height: 16px;
     width: 16px;
@@ -53,12 +53,12 @@ form a {
     cursor: pointer;
     background-repeat: no-repeat;
     background-image: url(../../assets/icons/search.png);
-}
+} */
 
-form button:hover {
+/* form button:hover {
     height: 16px;
     width: 16px;
     background-repeat: no-repeat;
     background-image: url(../../assets/icons/search-hover.png);
     
-}
+} */

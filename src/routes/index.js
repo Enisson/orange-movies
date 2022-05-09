@@ -30,6 +30,7 @@ export default function AllRoutes() {
             {user && (<>
                 <Route path="/dashboard" element={<Dashboard logOut={()=> setUser(false)}/>} />
             </>)}
+            
             <Route path="/" element={<Home />} />
             <Route path="/movies" element={<Movie />} />
             <Route path="/tv" element={<Tv />} />
@@ -37,7 +38,7 @@ export default function AllRoutes() {
             <Route path="/details/movie/:id" element={<Details />} />
             <Route path="/details/tv/:id" element={<DetailsTv />} />
 
-            <Route path="*" element={<Navigate to={user ? '/dashboard' : '/login'}/>}/>
+            <Route path="*" element={<Navigate to={user ? '/dashboard' : '/signup'}/>}/>
         </Routes>
 
     );

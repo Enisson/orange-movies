@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
-import { auth } from "../Firebase/Firebase";
-import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { auth, db } from "../Firebase/Firebase";
+import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { addDoc, collection } from "firebase/firestore";
 
 
 export const UserContext = createContext();
@@ -8,6 +9,7 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [gender, setGender] = useState();
 
     useEffect( ()=> {
         const userStorage = localStorage.getItem('user');
@@ -20,14 +22,21 @@ export const UserContextProvider = ({ children }) => {
     
     const signupWithEmailAndPass = (email, name, password) => {
         createUserWithEmailAndPassword(auth, email, password)
-        .then( ()=> {
-            return updateProfile(auth.currentUser, {
-                displayName: name
-            })
+        .then( async ()=> {
+            try {
+                await addDoc(collection(db, "users"), {
+                    name: name,
+                    email: email,
+                    gender: gender
+                })
+            } catch (error) {
+                console.log(error);
+                setUser(null);
+                return alert(error)
+            }
         } )
-        .then( (res) => alert("Logado com sucesso!"))
-        .catch(()=> setUser(null))
-        .finally( (err)=> console.log(err) );
+        .then(()=> alert("Cadastrado com sucesso!"))
+        
     };
 
     const signinUser = (email, password) => {
@@ -52,6 +61,8 @@ export const UserContextProvider = ({ children }) => {
         <UserContext.Provider value={{
             user,
             setUser,
+            gender, 
+            setGender,
             signupWithEmailAndPass,
             signinUser,
             forgotPassword,

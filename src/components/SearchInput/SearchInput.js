@@ -17,6 +17,7 @@ export default function SearchInput() {
       .then((data) => {
         setMovie(data.results);
       });
+
   }, [searchMovies]);
 
   try {
@@ -28,6 +29,8 @@ export default function SearchInput() {
         />
         {movie.map((item) => {
           const { id, title, overview, release_date, poster_path } = item;
+
+          
 
           return (
             <ul key={id}>

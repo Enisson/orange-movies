@@ -1,4 +1,4 @@
-form {
+.header-content form {
     margin-top: 0;
     width: 500px;
     height: 21px;
@@ -7,14 +7,13 @@ form {
     background-color: white;
 }
 
-form:focus-within {
+.header-content form:focus-within {
     height: 340px;
     margin-top: 20rem;
     overflow-y: auto;
-
 }
 
-form input {
+.header-content form input {
     border: none;
     width: 342px;
     border-bottom: 1px solid #363231;
@@ -24,7 +23,7 @@ form input {
 
 
 
-form ul {
+.header-content form ul {
     margin: 0 auto;
     margin-bottom: 1rem;
     border: 1px solid rgb(219, 219, 219);
@@ -33,16 +32,16 @@ form ul {
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-form img {
+.header-content form img {
     width: 100px;
     margin-right: 1rem;
 }
 
-form span {
+.header-content form span {
     color: #FF8001;
 }
 
-form p {
+.header-content form p {
     height: 50px;
     display: -webkit-box;
     -webkit-line-clamp: 3;

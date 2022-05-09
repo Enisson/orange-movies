@@ -30,7 +30,7 @@ export default function Header() {
           <nav className="userpanel">
             <ul>
               <li>
-                <a href="/">Entrar</a>
+                <Link to={"/login"}>Entrar</Link>
               </li>
             </ul>
           </nav>

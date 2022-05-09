@@ -1,14 +1,12 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const SearchBtn = createContext();
 
 export function SearchBtnProvider({ children }) {
 
-  const [searchMovies, setSearchMovies] = useState();
+  const [searchMovies, setSearchMovies] = useState('pesquisar');
 
-  useEffect(()=>{
-      setSearchMovies(searchMovies)
-  },[searchMovies])
+
 
   return (
     <SearchBtn.Provider value={{ setSearchMovies, searchMovies }}>

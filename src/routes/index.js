@@ -28,7 +28,9 @@ export default function AllRoutes() {
             </>)}
 
             {user && (<>
+
                 <Route path="/dashboard" element={<Dashboard logOut={()=> setUser(false)}/>} />
+            
             </>)}
             
             <Route path="/" element={<Home />} />

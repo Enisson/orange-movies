@@ -9,7 +9,9 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
+    const [userData, setUserData] = useState();
     const [gender, setGender] = useState();
+    const [loading, setLoading] = useState(false);
 
     useEffect( ()=> {
         const userStorage = localStorage.getItem('user');
@@ -20,23 +22,39 @@ export const UserContextProvider = ({ children }) => {
         localStorage.setItem('user', user);
     }, [user] )
     
-    const signupWithEmailAndPass = (email, name, password) => {
+    const  signupWithEmailAndPass = (email, name, password) => {
+        setLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
-        .then( async ()=> {
+        .then( async (value)=> {
+            console.log(value)
             try {
                 await addDoc(collection(db, "users"), {
                     name: name,
                     email: email,
-                    gender: gender
-                })
+                    gender: gender,
+                    avatarUrl: null
+                }).then( ()=> {
+
+                    let data = {
+                        name: name,
+                        email: email,
+                        gender: gender,
+                        avatarUrl: null
+                    }
+                    setUserData(data);
+                    storageUser(data);
+                    setLoading(false);
+                } )
             } catch (error) {
                 console.log(error);
                 setUser(null);
                 return alert(error)
             }
-        } )
-        .then(()=> alert("Cadastrado com sucesso!"))
-        
+        } );
+    };
+
+    const storageUser = (data) => {
+        localStorage.setItem('userData', JSON.stringify(data));
     };
 
     const signinUser = (email, password) => {
@@ -61,7 +79,9 @@ export const UserContextProvider = ({ children }) => {
         <UserContext.Provider value={{
             user,
             setUser,
-            gender, 
+            gender,
+            userData,
+            loading, 
             setGender,
             signupWithEmailAndPass,
             signinUser,

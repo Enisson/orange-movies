@@ -4,8 +4,14 @@ import Logo from "../../assets/Logo.png";
 import { Link } from "react-router-dom";
 import SearchInput from "../SearchInput/SearchInput";
 import { SearchBtnProvider } from "../../contexts/SearchBtn";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+
+import avatar from "../../assets/avatar.png";
 
 export default function Header() {
+  const { user } = useContext(UserContext);
+
   return (
     <SearchBtnProvider>
       <header>
@@ -30,7 +36,19 @@ export default function Header() {
           <nav className="userpanel">
             <ul>
               <li>
-                <Link to={"/login"}>Entrar</Link>
+                {user === true ? (
+                  <Link to={"/login"}>
+                    <div className="profile-container">
+                      <img
+                        src={avatar}
+                        //   src={userData.avatarUrl === null ? avatar : userData.avatarUrl}
+                        alt="profile"
+                      />
+                    </div>
+                  </Link>
+                ) : (
+                  <Link to={"/login"}>Entrar</Link>
+                )}
               </li>
             </ul>
           </nav>

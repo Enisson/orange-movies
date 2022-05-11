@@ -1,5 +1,5 @@
 import { useContext, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import "./styles.css";
 
@@ -11,7 +11,6 @@ export default function Login({authentication}) {
 
   const emailRef = useRef();
   const passRef = useRef();
-  const navigate = useNavigate();
 
   const signInFunction = () => {
     const email = emailRef.current.value;
@@ -20,7 +19,6 @@ export default function Login({authentication}) {
     if(email && password){
       signinUser(email, password)
       authentication();
-      navigate("/dashboard")
     }
 
   };

@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { auth, db } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDoc } from "firebase/firestore";
 
 
 export const UserContext = createContext();
@@ -26,7 +26,7 @@ export const UserContextProvider = ({ children }) => {
         setLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then( async (value)=> {
-            console.log(value)
+            
             try {
                 await addDoc(collection(db, "users"), {
                     name: name,
@@ -58,10 +58,17 @@ export const UserContextProvider = ({ children }) => {
     };
 
     const signinUser = (email, password) => {
+        setLoading(true)
         signInWithEmailAndPassword(auth, email, password)
-        .then( (res) => console.log(res) )
-        .catch( (err)=> console.log(err) )
-        .finally( ()=> setUser(null) )
+        .then( async (value) => {
+            try {
+                await getDoc(collection(db, "users"))
+            } catch (error) {
+                console.log(error);
+                setUser(null);
+                return alert(error);
+            }
+        } )
     };
 
     const forgotPassword = (email) => {

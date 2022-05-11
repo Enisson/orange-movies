@@ -29,3 +29,16 @@ li a {
 a:hover {
     color: #FF8001;
 }
+
+header .profile-container {
+    color: #FF8001;
+    padding: 0.2rem;
+    height: 3rem;
+    width: 3rem;
+    border: 2px solid;
+    border-radius: 50%;
+}
+
+header img {
+    width: 100%;
+}

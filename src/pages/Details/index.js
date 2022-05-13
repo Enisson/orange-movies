@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { apikey } from "../../config/Key";
 
 import timer from '../../assets/icons/timer.svg';
-import fav from '../../assets/icons/heart.svg';
 import './styles.css'
 import SimilarMovies from "../../components/SimilarMovies";
 import MovieCrew from "../../components/MovieCrew";
 import MovieCast from "../../components/MovieCast";
 import Trailers from "../../components/Trailers";
+import { UserContext } from "../../contexts/UserContext";
 
 
 export default function Details() {
 
     const { id } = useParams();
+
+    const { storageContent, favIcon } = useContext(UserContext);
     
     const [movie, setMovie] = useState({});
     const [genre, setGenre] = useState([]);
@@ -91,6 +93,12 @@ export default function Details() {
         return className
     }
 
+    const storage = () => {
+        const movie = id;
+
+        storageContent(movie)
+    }
+
     return(
         <div className="details-container">
             <div className="backposter">
@@ -113,7 +121,7 @@ export default function Details() {
                         <span className="vote-count">{`${movie.voteCount} votos`}</span>
                     </div>
                     <span className="tagline">{movie.tagline}</span>
-                    <span className="favorite"><img src={fav} alt="favorite" /></span>
+                    <button onClick={storage} type="button" className="favorite"><img src={favIcon} /></button>
                 </div>
             </div>
 

@@ -29,7 +29,7 @@ export default function Login({authentication}) {
         <div className="login">
           <div>
             <p className="welcome">Olá, Seja bem vindo!</p>
-            <p>Entre com a sua conta google para poder salvar os seus filmes favoritos</p>
+            <p>Entre com a sua conta para poder salvar os seus filmes favoritos</p>
           </div>
           <form onSubmit={signInFunction}>
             <h1>Login</h1>

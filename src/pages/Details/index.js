@@ -15,7 +15,7 @@ export default function Details() {
 
     const { id } = useParams();
 
-    const { storageContent, favIcon, userData } = useContext(UserContext);
+    const { storageContent, favIcon, user } = useContext(UserContext);
     
     const [movie, setMovie] = useState({});
     const [genre, setGenre] = useState([]);
@@ -94,7 +94,7 @@ export default function Details() {
     }
 
     const storage = () => {
-        if(!userData){
+        if(!user){
             return alert("Para salvar em seus favoritos é preciso estar logado!")
         }
         const movie = id;

@@ -26,7 +26,8 @@ export default function Dashboard() {
               />
             </div>
             <div className="profile-content">
-            <h1>Nome de usuário</h1>
+            <h1>{userData.name}</h1>
+            
             <span>Membro desde março de 2022</span>
             <button onClick={logoutUser}>Sair</button>
             </div>

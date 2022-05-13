@@ -1,10 +1,11 @@
 import { createContext, useState, useEffect } from "react";
 import { auth, db } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 import heart from '../assets/icons/heart.svg'
 import heartFull from '../assets/icons/heart-full.svg';
+import { async } from "@firebase/util";
 
 
 export const UserContext = createContext();
@@ -12,11 +13,11 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
-    const [userData, setUserData] = useState();
+    const [userData, setUserData] = useState([]);
     const [gender, setGender] = useState();
     const [loading, setLoading] = useState(false);
     const [favIcon, setFavIcon] = useState(heart);
-    const [movieList, setMovieList] = useState([{}]);
+    const [usersData, setUsersData] = useState([]);
 
     useEffect( ()=> {
         const userStorage = localStorage.getItem('user');
@@ -26,6 +27,21 @@ export const UserContextProvider = ({ children }) => {
     useEffect( ()=> {
         localStorage.setItem('user', user);
     }, [user] )
+
+    useEffect( ()=> {
+        const userDataStorage = localStorage.getItem('userData');
+        const storage = JSON.parse(userDataStorage)
+        setUserData(storage)
+
+        const usersDataStorage = localStorage.getItem('usersAccountLogin');
+        let saveUser = JSON.parse(usersDataStorage) || [];
+
+        const hasUser = saveUser.some( (saveUser) => saveUser === storage )
+        if(!hasUser){
+            setUsersData(saveUser);
+        }
+    }, [] )
+
     
     const  signupWithEmailAndPass = (email, name, password) => {
         setLoading(true)
@@ -33,41 +49,28 @@ export const UserContextProvider = ({ children }) => {
         .then( async (value)=> {
             
             const uid = value.user.uid;
-            console.log(uid)
             
             await setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
                 gender: gender,
                 avatarUrl: null,
-              }).then( ()=> {
+                moviesList: [{}]
+              }).then( ()=> { 
 
-                        let data = {
-                            name: name,
-                            email: email,
-                            gender: gender,
-                            avatarUrl: null,
-                            uid: uid
-                        }
-                       
-                        setUserData(data);
-                        storageUser(data);
-                        setLoading(false);
-                    } )
-            // try {
-            //     await addDoc(collection(db, "users"), {
-            //         name: name,
-            //         email: email,
-            //         gender: gender,
-            //         avatarUrl: null,
-            //         moviesList: {movieList}
+                    let data = {
+                        name: name,
+                        email: email,
+                        gender: gender,
+                        avatarUrl: null,
+                        moviesList: [{}],
+                        uid: uid
+                    }
                     
-            //     })
-            // } catch (error) {
-            //     console.log(error);
-            //     setUser(null);
-            //     return alert(error)
-            // }
+                    setUserData(data);
+                    storageUser(data);
+                    setLoading(false);
+                } )
         } );
     };
 
@@ -78,6 +81,9 @@ export const UserContextProvider = ({ children }) => {
     const signinUser = async (email, password) => {
         setLoading(true)
         await signInWithEmailAndPassword(auth, email, password)
+        .then( async ()=> {
+            storageUser(usersData)
+        } )
         .then( ()=> alert('Bem vindo de volta!') )
         .catch((error) => {
             console.log(error);
@@ -85,9 +91,12 @@ export const UserContextProvider = ({ children }) => {
         })
         .finally(()=> {
             setLoading(false);
-
+            
         })
         
+        const storageUser = (data) => {
+            localStorage.setItem('userData', JSON.stringify(data));
+        };
     };
 
     const forgotPassword = (email) => {
@@ -97,20 +106,30 @@ export const UserContextProvider = ({ children }) => {
     const logoutUser = () => {
         signOut(auth)
         .then( ()=> alert("Deslogado com sucesso!") )
-        localStorage.removeItem('user')
+        localStorage.removeItem('user');
+        // localStorage.removeItem('moviesList');
+        // localStorage.removeItem('userData');
         setUser(null);
     }
 
     const storageContent = async (movie) => {
-            // const querySnap = await getDocs(collection(db, "users"));
-            // querySnap.forEach((doc) => {
-            //     console.log(`${doc.id} => ${doc.data()}`);
-            // })
-            const name = "enisson"
-            await setDoc(doc(db, "users", name), {
-                name: "Los Angeles",
-                state: "CA",
-                country: "USA"
+
+        const myList = localStorage.getItem("moviesList");
+        let saveMovies = JSON.parse(myList) || [];
+
+        const hasMovie = saveMovies.some( (saveMovies) => saveMovies === movie )
+
+        if(hasMovie){
+            return alert("Filme já está salvo");
+        }
+
+        saveMovies.push(movie);
+        localStorage.setItem("moviesList", JSON.stringify(saveMovies));
+        alert("Filme salvo!")
+        
+            const uid = userData.uid;
+            await updateDoc(doc(db, "users", uid), {
+                moviesList: saveMovies
               });
         
     }

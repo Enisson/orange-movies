@@ -11,17 +11,37 @@
     display: flex;
     align-items: center;
 }
-.profile-header-container .profile-container {
+.profile-header-container .profile-container button {
+    background-color: #16C632;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.profile-header-container .profile-container div {
     color: #FF8001;
-    padding: 0.2rem;
+    border: 7px solid;
+    overflow: hidden;
     height: 10.5rem;
     width: 10.5rem;
-    border: 7px solid;
     border-radius: 50%;
+    
+}
+
+.profile-header-container .profile-container label {
+    cursor: pointer;
+   
 }
 
 .profile-header-container img {
     width: 100%;
+}
+
+.profile-header-container .profile-container input {
+    visibility: hidden;
 }
 
 .profile-content {

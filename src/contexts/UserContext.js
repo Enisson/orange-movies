@@ -140,6 +140,7 @@ export const UserContextProvider = ({ children }) => {
             setUser,
             gender,
             userData,
+            setUserData,
             loading, 
             setGender,
             signupWithEmailAndPass,

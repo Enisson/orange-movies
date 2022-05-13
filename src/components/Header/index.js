@@ -10,7 +10,7 @@ import { UserContext } from "../../contexts/UserContext";
 import avatar from "../../assets/avatar.png";
 
 export default function Header() {
-  const { user } = useContext(UserContext);
+  const { user, userData } = useContext(UserContext);
 
   return (
     <SearchBtnProvider>
@@ -39,11 +39,11 @@ export default function Header() {
                 {user === true ? (
                   <Link to={"/login"}>
                     <div className="profile-container">
-                      <img
-                        src={avatar}
-                        //   src={userData.avatarUrl === null ? avatar : userData.avatarUrl}
-                        alt="profile"
-                      />
+                      {userData.avatarUrl === null ? (
+                        <img src={avatar} alt="Profile" />
+                      ) : (
+                        <img src={userData.avatarUrl} alt="profile" />
+                      )}
                     </div>
                   </Link>
                 ) : (

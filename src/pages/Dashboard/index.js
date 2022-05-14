@@ -70,7 +70,7 @@ export default function Dashboard() {
             <div className="profile-content">
             <h1>{userData.name}</h1>
             
-            <span>Membro desde março de 2022</span>
+            <span>{userData.register}</span>
             <button onClick={logoutUser}>Sair</button>
             </div>
           </div>

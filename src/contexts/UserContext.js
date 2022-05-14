@@ -48,14 +48,21 @@ export const UserContextProvider = ({ children }) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then( async (value)=> {
             
+            
             const uid = value.user.uid;
+
+            const date = new Date();
+            const month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+            const year = `Mebro desde ${date.getDay()} de ${month[date.getMonth()]} de ${date.getFullYear()}`;
             
             await setDoc(doc(db, "users", uid), {
                 name: name,
                 email: email,
                 gender: gender,
                 avatarUrl: null,
-                moviesList: [{}]
+                moviesList: [{}],
+                register: year
+                
               }).then( ()=> { 
 
                     let data = {
@@ -64,7 +71,8 @@ export const UserContextProvider = ({ children }) => {
                         gender: gender,
                         avatarUrl: null,
                         moviesList: [{}],
-                        uid: uid
+                        uid: uid,
+                        register: year
                     }
                     
                     setUserData(data);

@@ -33,7 +33,7 @@
 
 .profile-header-container .profile-container label {
     cursor: pointer;
-   
+    
 }
 
 .profile-header-container img {
@@ -50,6 +50,10 @@
     text-align: left;
     margin-left: 20px;
     color: white;
+}
+
+.profile-content h1 {
+    text-transform: capitalize;
 }
 
 .profile-content button {

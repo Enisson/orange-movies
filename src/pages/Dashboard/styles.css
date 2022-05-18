@@ -1,5 +1,6 @@
 .dashboard-container {
-    background-color: white;
+        background-color: white;
+       
 }
 .header-container {
     background-color: #FFB802;
@@ -70,3 +71,47 @@
 .profile-content button:hover {
     background-color: #E23B07;
 }
+
+.dashboard-container .title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4rem;
+    padding-bottom: 20px;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.dashboard-container .title {
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 52px;
+}
+
+.dashboard-container .title h1 {
+    color: white;
+    width: 490px;
+    padding: 10px;
+    padding-left: 30px;
+    text-align: left;
+    background-color: #FF8001;
+}
+
+.dashboard-container .movie-link .gener{
+    font-weight: bold;
+    padding: 18px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dashboard-container .movie-link .gener-active::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    left: 0;
+    top: 0;
+    background-color: #FF8001;
+} 

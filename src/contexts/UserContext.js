@@ -1,11 +1,10 @@
 import { createContext, useState, useEffect } from "react";
-import { auth, db } from "../Firebase/Firebase";
+import { auth, db, storage } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { addDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
 import heart from '../assets/icons/heart.svg'
 import heartFull from '../assets/icons/heart-full.svg';
-import { async } from "@firebase/util";
 
 
 export const UserContext = createContext();
@@ -17,7 +16,9 @@ export const UserContextProvider = ({ children }) => {
     const [gender, setGender] = useState();
     const [loading, setLoading] = useState(false);
     const [favIcon, setFavIcon] = useState(heart);
-    const [usersData, setUsersData] = useState([]);
+    const [movieList, setMovieList] = useState(userData);
+
+    const month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
     useEffect( ()=> {
         const userStorage = localStorage.getItem('user');
@@ -27,19 +28,11 @@ export const UserContextProvider = ({ children }) => {
     useEffect( ()=> {
         localStorage.setItem('user', user);
     }, [user] )
-
+    
     useEffect( ()=> {
         const userDataStorage = localStorage.getItem('userData');
         const storage = JSON.parse(userDataStorage)
-        setUserData(storage)
-
-        const usersDataStorage = localStorage.getItem('usersAccountLogin');
-        let saveUser = JSON.parse(usersDataStorage) || [];
-
-        const hasUser = saveUser.some( (saveUser) => saveUser === storage )
-        if(!hasUser){
-            setUsersData(saveUser);
-        }
+        setUserData(storage)        
     }, [] )
 
     
@@ -89,9 +82,6 @@ export const UserContextProvider = ({ children }) => {
     const signinUser = async (email, password) => {
         setLoading(true)
         await signInWithEmailAndPassword(auth, email, password)
-        .then( async ()=> {
-            storageUser(usersData)
-        } )
         .then( ()=> alert('Bem vindo de volta!') )
         .catch((error) => {
             console.log(error);
@@ -101,10 +91,6 @@ export const UserContextProvider = ({ children }) => {
             setLoading(false);
             
         })
-        
-        const storageUser = (data) => {
-            localStorage.setItem('userData', JSON.stringify(data));
-        };
     };
 
     const forgotPassword = (email) => {
@@ -146,6 +132,7 @@ export const UserContextProvider = ({ children }) => {
         <UserContext.Provider value={{
             user,
             setUser,
+            month,
             gender,
             userData,
             setUserData,

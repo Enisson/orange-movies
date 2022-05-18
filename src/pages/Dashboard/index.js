@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 import avatar from "../../assets/avatar.png";
@@ -6,10 +6,19 @@ import "./styles.css";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "../../Firebase/Firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import FavMovie from "../../components/FavMovie";
 
 export default function Dashboard() {
   const { logoutUser, userData, loading, setUserData } = useContext(UserContext);
   const [imageAvatar, setImageAvatar] = useState(null);
+  const [isMovie, setIsMovie] = useState(true);
+  const [idMovies, setIdMovies] = useState([]);
+  
+  useEffect( ()=> {
+    const userDataStorage = localStorage.getItem('moviesList');
+    const storage = JSON.parse(userDataStorage)
+    setIdMovies(storage);       
+}, [] )
 
   const handleFile = () => {
   
@@ -75,7 +84,22 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        <h1>This is a dashboard</h1>
+        <div className="title-container">
+                <div className="title">
+                    <h1>Meus favoritos</h1>
+                </div>
+                <div className="movie-link">
+                    <span className={`gener ${isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(true)}>Filmes</span>
+                    <span className={`gener ${!isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(false)}>Séries</span>
+                </div>
+        </div>
+                  {idMovies.map( ids => {
+                    return (
+                      <div key={ids}>
+                        <FavMovie id={ids}/>                
+                      </div>
+                    )
+                  })}
 
       </div>
     );

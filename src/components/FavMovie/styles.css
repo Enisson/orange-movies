@@ -1,0 +1,51 @@
+.favmovie-container {
+    max-width: 1220px;
+    margin: 0 auto;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    border: 1px solid #D7D7D7;
+    height: 200px;
+    display: flex;
+    margin-bottom: 10px;
+}
+.favmovie-container .img-container {
+    height: 200px;
+    margin-right: 30px;
+}
+
+.favmovie-container img {
+    height: 100%;
+}
+
+.favmovie-container .favmovie-content {
+  text-align: left;
+}
+
+.favmovie-container .movie-popularity {
+    background-color: #FFB802;
+    margin-right: 10px;
+    height: 26px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.favmovie-container .movie-less {
+    background-color: #E23B07;
+    margin-right: 10px;
+    height: 26px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.favmovie-container .movie-high {
+    background-color: #16C632;
+    margin-right: 10px;
+    height: 26px;
+    padding: 5px 15px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

@@ -3,7 +3,7 @@
 Projeto ainda está em desenvolvimento. Readme Atualizado conforme o avanço do mesmo.
 
 ## Sobre o projeto
-Orange movies é um site com filmes e séries onde você poderá saber mais informações (através de uma api) do mesmo como, diretor, ano de lançamento, os mais populares do momento e muito mais. Você poderá salvar os seus filmes e séries favoritos em sua lista. 
+Orange movies é um site com filmes e séries onde você poderá saber mais informações do mesmo como, diretor, ano de lançamento, os mais populares do momento e muito mais. Você poderá salvar os seus filmes e séries favoritos em sua lista através de um cadastro no site. 
 
 ### Ferramentas utilizadas
 <ul>
@@ -15,9 +15,9 @@ Orange movies é um site com filmes e séries onde você poderá saber mais info
 
 ## trello
 
-Para uma melhor organização do projeto, estou fazendo uso da ferramenta trello (Sendo atualizado conforme a necessidade do projeto).
+Para uma melhor organização do projeto, estou fazendo uso da ferramenta trello.
 
-![image](https://user-images.githubusercontent.com/70671093/161816464-75bf2ddf-967e-4096-9d25-c6585a5fd3b2.png)
+![image](https://user-images.githubusercontent.com/70671093/169414198-0e2d7426-51bd-4890-95cf-1e7380bbaf31.png)
 
 
 
@@ -26,7 +26,12 @@ Design do site, logo e paleta de cores desenvolvidos por mim através do editor 
 
 ![orange-movies](https://user-images.githubusercontent.com/70671093/161812275-89f355ad-37c3-4280-bd1b-184e438c8b55.gif)
 
+## API
+Neste projeto utilizei a API do site TMDB: https://developers.themoviedb.org/3/getting-started
+
 ## O projeto
+
+Abaixo mostro a forma como pensei para chegar em determinadas funções do site.
 
 ### Banner
 

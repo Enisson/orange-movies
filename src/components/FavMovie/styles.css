@@ -20,6 +20,12 @@
   text-align: left;
 }
 
+.favmovie-container .span-info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
 .favmovie-container .movie-popularity {
     background-color: #FFB802;
     margin-right: 10px;
@@ -42,6 +48,7 @@
 
 .favmovie-container .movie-high {
     background-color: #16C632;
+    width: 45px;
     margin-right: 10px;
     height: 26px;
     padding: 5px 15px;

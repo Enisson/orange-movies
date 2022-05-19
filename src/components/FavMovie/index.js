@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import { useContext, useEffect, useState } from "react";
 import { apikey } from "../../config/Key";
 import { UserContext } from "../../contexts/UserContext";
@@ -10,7 +11,7 @@ export default function FavMovie({ id }) {
   const [releaseDateDay, setReleaseDateDay] = useState();
   const [releaseDateY, setReleaseDateY] = useState();
 
-  const { month } = useContext(UserContext);
+  const { month, loading } = useContext(UserContext);
 
   const image_path = "https://image.tmdb.org/t/p/original";
 
@@ -42,10 +43,13 @@ export default function FavMovie({ id }) {
         if(splitStr[1])
         console.log(splitStr)
       });
+      
   }, [id]);
 
+ 
+  
   let className = "movie-popularity"
-
+  
   const moviePop = () => {
 
     let movieAve = movie.voteAverage;
@@ -59,18 +63,25 @@ export default function FavMovie({ id }) {
 
     return className
 }
+if(movie !== undefined){
 
   return (
-    <div className="favmovie-container">
-      <div className="img-container">
-        <img src={movie.image} alt={movie.title} />
-      </div>
-      <div className="favmovie-content">
-        <h1>{movie.title}</h1>
+  <div className="favmovie-container">
+    <div className="img-container">
+    <img src={movie.image} alt={movie.title} />
+  </div>
+  <div className="favmovie-content">
+    <h1>{movie.title}</h1>
+    <div className="span-info">
         <span>{`${releaseDateDay} de ${month[releaseDateMonth]} de ${releaseDateY}`}</span>
         <span  className={moviePop()}>{movie.voteAverage}</span>
-        <p>{movie.overview}</p>
-      </div>
     </div>
+    <p>{movie.overview}</p>
+  </div>
+  </div>
   );
 }
+
+  
+}
+  

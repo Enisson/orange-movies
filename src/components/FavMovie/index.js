@@ -30,18 +30,16 @@ export default function FavMovie({ id }) {
           releaseDate: release_date,
           voteAverage: vote_average,
         };
-        console.log(data);
         setMovie(movie);
 
         let release = movie.releaseDate;
         let splitStr = release.split("-");
         let replaceStr = splitStr.reverse();
                 
-        setReleaseDateMonth(splitStr[1]);
+        setReleaseDateMonth(splitStr[1].slice(1));
         setReleaseDateDay(splitStr[0])
         setReleaseDateY(splitStr[2]);
-        if(splitStr[1])
-        console.log(splitStr)
+        
       });
       
   }, [id]);

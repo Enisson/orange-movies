@@ -2,11 +2,10 @@
 
 Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas funcionalidades do site como:
 <ul>
-  <li>Se cadastrar no site</li>
-  <li>Adicionar uma foto de perfil</li>
   <li>Ver informações detalhadas de um filme</li>
   <li>Conferir os trailers mais recentes</li>
-  <li>Adicionar os filmes em sua lista de favoritos</li>
+  <li>Ver os filmes em cartaz</li>
+  <li>Os atores e atrizes mais bem avaliados</li>
 </ul>
 
 Readme Atualizado conforme o avanço do mesmo.

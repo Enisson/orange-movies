@@ -1,6 +1,15 @@
 # Orange movies
 
-Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas funcionalidades do site. Readme Atualizado conforme o avanço do mesmo.
+Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas funcionalidades do site como:
+<ul>
+  <li>Se cadastrar no site</li>
+  <li>Adicionar uma foto de perfil</li>
+  <li>Ver informações detalhadas de um filme</li>
+  <li>Conferir os trailers mais recentes</li>
+  <li>Adicionar os filmes em sua lista de favoritos</li>
+</ul>
+
+Readme Atualizado conforme o avanço do mesmo.
 
 ## Deploy
 Deploy realizado na vercel. Link do site ativo: https://orange-movies.vercel.app

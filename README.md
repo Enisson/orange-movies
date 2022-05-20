@@ -1,6 +1,9 @@
 # Orange movies
 
-Projeto ainda está em desenvolvimento. Readme Atualizado conforme o avanço do mesmo.
+Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas funcionalidades do site. Readme Atualizado conforme o avanço do mesmo.
+
+## Deploy
+Deploy realizado na vercel. Link do site ativo: https://orange-movies.vercel.app
 
 ## Sobre o projeto
 Orange movies é um site com filmes e séries onde você poderá saber mais informações do mesmo como, diretor, ano de lançamento, os mais populares do momento e muito mais. Você poderá salvar os seus filmes e séries favoritos em sua lista através de um cadastro no site. 

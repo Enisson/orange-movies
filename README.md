@@ -28,7 +28,8 @@ Orange movies é um site com filmes e séries onde você poderá saber mais info
 
 Para uma melhor organização do projeto, estou fazendo uso da ferramenta trello.
 
-![image](https://user-images.githubusercontent.com/70671093/169414198-0e2d7426-51bd-4890-95cf-1e7380bbaf31.png)
+![image](https://user-images.githubusercontent.com/70671093/169669286-f7646f5c-e12a-4cd0-9779-5027c2b0d721.png)
+
 
 
 

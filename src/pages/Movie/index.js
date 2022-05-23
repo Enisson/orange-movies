@@ -9,16 +9,38 @@ import './styles.css';
 export default function Movie() {
 
     const [movies, setMovies] = useState([]);
+    const [valueCHa, setValueCha] = useState();
+    const [filterList, setFilterList] = useState('popular');
     const image_path = "https://image.tmdb.org/t/p/w500";
 
 
     useEffect( ()=> {
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apikey}&language=pt-BR&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/${filterList}?api_key=${apikey}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => {
             setMovies(data.results)
         });
-    }, [] );
+
+        const changeValueFunciton = () => {
+            switch (valueCHa) {
+                case 'Maior popularidade':
+                    setFilterList('popular')
+                    break;
+                case 'lançamento':
+                    setFilterList('upcoming')
+                    break;
+                case 'Melhor avaliação':
+                    setFilterList('top_rated')
+                    break;
+                default:
+                    setFilterList('popular')
+                    break;
+            }
+        }
+
+        changeValueFunciton()
+
+    }, [filterList, valueCHa] );
 
     return (
         <div>
@@ -27,7 +49,7 @@ export default function Movie() {
             <div className="filter">
                 <form>
                     <label>Ordenar por</label>
-                    <select name="movies">
+                    <select name="movies" onChange={(e)=> setValueCha(e.target.value)}>
                         <option value="Maior popularidade">Maior popularidade</option>
                         <option value="lançamento">lançamento</option>
                         <option value="Melhor avaliação">Melhor avaliação</option>

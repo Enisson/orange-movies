@@ -93,7 +93,7 @@ export default function Dashboard() {
                     <span className={`gener ${!isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(false)}>Séries</span>
                 </div>
         </div>
-                  {idMovies.map( ids => {
+                  {idMovies && idMovies.map( ids => {
                     return (
                       <div key={ids}>
                         <FavMovie id={ids}/>                

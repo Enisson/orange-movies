@@ -1,10 +1,9 @@
 import { createContext, useState, useEffect } from "react";
-import { auth, db, storage } from "../Firebase/Firebase";
+import { auth, db } from "../Firebase/Firebase";
 import { createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { addDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 
-import heart from '../assets/icons/heart.svg'
-import heartFull from '../assets/icons/heart-full.svg';
+
 
 
 export const UserContext = createContext();
@@ -15,8 +14,7 @@ export const UserContextProvider = ({ children }) => {
     const [userData, setUserData] = useState([]);
     const [gender, setGender] = useState();
     const [loading, setLoading] = useState(false);
-    const [favIcon, setFavIcon] = useState(heart);
-    const [movieList, setMovieList] = useState(userData);
+    
 
     const month = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
 
@@ -144,7 +142,6 @@ export const UserContextProvider = ({ children }) => {
             forgotPassword,
             logoutUser,
             storageContent,
-            favIcon
         }}>
             { children }
         </UserContext.Provider>

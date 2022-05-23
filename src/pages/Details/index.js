@@ -10,18 +10,19 @@ import MovieCast from "../../components/MovieCast";
 import Trailers from "../../components/Trailers";
 import { UserContext } from "../../contexts/UserContext";
 
+import heart from '../../assets/icons/heart.svg'
+import heartFull from '../../assets/icons/heart-full.svg';
 
 export default function Details() {
 
     const { id } = useParams();
 
-    const { storageContent, favIcon, user } = useContext(UserContext);
-    
+    const { storageContent, user } = useContext(UserContext);
+    const [favIcon, setFavIcon] = useState(heart);
     const [movie, setMovie] = useState({});
     const [genre, setGenre] = useState([]);
     const [releaseDate, setReleaseDate] = useState();
     const [releaseDateY, setReleaseDateY] = useState();
-
 
 
     const image_path = "https://image.tmdb.org/t/p/original";
@@ -98,8 +99,12 @@ export default function Details() {
             return alert("Para salvar em seus favoritos é preciso estar logado!")
         }
         const movie = id;
-
+        
         storageContent(movie)
+
+        if(favIcon === heart){
+            setFavIcon(heartFull)
+        }
     }
 
     return(
@@ -124,7 +129,7 @@ export default function Details() {
                         <span className="vote-count">{`${movie.voteCount} votos`}</span>
                     </div>
                     <span className="tagline">{movie.tagline}</span>
-                    <button onClick={storage} type="button" className="favorite"><img src={favIcon} /></button>
+                    <button onClick={storage} type="button" className="favorite"><img src={favIcon} alt="fav icon"/></button>
                 </div>
             </div>
 

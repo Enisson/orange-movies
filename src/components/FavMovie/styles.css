@@ -28,6 +28,7 @@
 
 .favmovie-container .movie-popularity {
     background-color: #FFB802;
+    width: 45px;
     margin-right: 10px;
     height: 26px;
     padding: 5px 15px;
@@ -38,6 +39,7 @@
 
 .favmovie-container .movie-less {
     background-color: #E23B07;
+    width: 45px;
     margin-right: 10px;
     height: 26px;
     padding: 5px 15px;

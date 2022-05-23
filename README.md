@@ -38,7 +38,8 @@ Para uma melhor organização do projeto, estou fazendo uso da ferramenta trello
 
 
 ## Figma
-Design do site, logo e paleta de cores desenvolvidos por mim através do editor gráfico Figma.
+Design do site, logo e paleta de cores desenvolvidos por mim através do editor gráfico Figma. </br>
+Link do design do projeto aqui: <a href="https://www.figma.com/file/E600xYEqmfY7XJtQtZvyCk/Orange---MOVIES?node-id=0%3A1">Figma</a>
 
 ![orange-movies](https://user-images.githubusercontent.com/70671093/161812275-89f355ad-37c3-4280-bd1b-184e438c8b55.gif)
 

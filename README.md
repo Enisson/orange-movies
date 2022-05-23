@@ -2,6 +2,8 @@
 
 Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas funcionalidades do site como:
 <ul>
+  <li>Se cadastrar no site</li>
+  <li>Adicionar filmes em sua lista de favoritos</li>
   <li>Ver informações detalhadas de um filme</li>
   <li>Conferir os trailers mais recentes</li>
   <li>Filtrar filmes por tipo</li>

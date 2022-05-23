@@ -4,6 +4,8 @@ Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas
 <ul>
   <li>Ver informações detalhadas de um filme</li>
   <li>Conferir os trailers mais recentes</li>
+  <li>Filtrar filmes por tipo</li>
+  <li>Pesquisar por filmes na barra de pesquisa</li>
   <li>Ver os filmes em cartaz</li>
   <li>Os atores e atrizes mais bem avaliados</li>
 </ul>

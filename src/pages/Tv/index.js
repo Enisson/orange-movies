@@ -19,7 +19,7 @@ export default function Tv() {
 
 
     useEffect( ()=> {
-        fetch(`http://api.themoviedb.org/3/discover/tv?api_key=${apikey}&sort_by=${filterList}&with_genres=${genreId}&language=pt-BR&page=1`)
+        fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${apikey}&sort_by=${filterList}&with_genres=${genreId}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => {
             setMovies(data.results)

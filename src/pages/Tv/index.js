@@ -10,14 +10,16 @@ export default function Tv() {
 
     const [movies, setMovies] = useState([]);
     const [valueCHa, setValueCha] = useState();
-    const [filterList, setFilterList] = useState('popular');
+    const [genreId, setGenreId] = useState();
 
+    const [filterList, setFilterList] = useState('popularity.desc');
+    
 
     const image_path = "https://image.tmdb.org/t/p/w500";
 
 
     useEffect( ()=> {
-        fetch(`https://api.themoviedb.org/3/tv/${filterList}?api_key=${apikey}&language=pt-BR&page=1`)
+        fetch(`http://api.themoviedb.org/3/discover/tv?api_key=${apikey}&sort_by=${filterList}&with_genres=${genreId}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => {
             setMovies(data.results)
@@ -26,22 +28,19 @@ export default function Tv() {
         const changeValueFunciton = () => {
             switch (valueCHa) {
                 case 'Maior popularidade':
-                    setFilterList('popular')
-                    break;
-                case 'lançamento':
-                    setFilterList('on_the_air')
+                    setFilterList('popularity.desc')
                     break;
                 case 'Melhor avaliação':
-                    setFilterList('top_rated')
+                    setFilterList('vote_count.desc')
                     break;
                 default:
-                    setFilterList('popular')
+                    setFilterList('popularity.desc')
                     break;
             }
         }
 
         changeValueFunciton()
-    }, [valueCHa, filterList] );
+    }, [valueCHa, filterList, genreId] );
 
     return (
         <div>
@@ -52,32 +51,69 @@ export default function Tv() {
                     <label>Ordenar por</label>
                     <select  name="movies" onChange={(e)=>setValueCha(e.target.value)}>
                         <option value="Maior popularidade">Maior popularidade</option>
-                        <option value="lançamento">lançamento</option>
                         <option value="Melhor avaliação">Melhor avaliação</option>
                     </select>
                 </form>
                 <div className="filter-genrer">
                     <h2>Gêneros</h2>
                     <ul className="filter-genrer-list">
-                        <li>Animação</li>
-                        <li>Aventura</li>
-                        <li>Ação</li>
-                        <li>Cinema Tv</li>
-                        <li>Comédia</li>
-                        <li>Crime</li>
-                        <li>Documentário</li>
-                        <li>Drama</li>
-                        <li>Família</li>
-                        <li>Fantasia</li>
-                        <li>Faroeste</li>
-                        <li>Sci-Fi</li>
-                        <li>Guerra</li>
-                        <li>História</li>
-                        <li>Mistério</li>
-                        <li>Música</li>
-                        <li>Romance</li>
-                        <li>Terror</li>
-                        <li>Thriller</li>
+                    <li onClick={()=> setGenreId('16')}>
+                            Animação
+                        </li>
+                        <li onClick={()=> setGenreId('12')}>
+                            Aventura
+                        </li>
+                        <li onClick={()=> setGenreId('28')}>
+                            Ação
+                        </li>
+                        <li onClick={()=> setGenreId('10770')}>
+                            Cinema Tv
+                        </li>
+                        <li onClick={()=> setGenreId('35')}>
+                            Comédia
+                        </li>
+                        <li onClick={()=> setGenreId('80')}>
+                            Crime
+                        </li>
+                        <li onClick={()=> setGenreId('99')}>
+                            Documentário
+                        </li>
+                        <li onClick={()=> setGenreId('18')}>
+                            Drama
+                        </li>
+                        <li onClick={()=> setGenreId('10751')}>
+                            Família
+                        </li>
+                        <li onClick={()=> setGenreId('14')}>
+                            Fantasia
+                        </li>
+                        <li onClick={()=> setGenreId('37')}>
+                            Faroeste
+                        </li>
+                        <li onClick={()=> setGenreId('878')}>
+                            Sci-Fi
+                        </li>
+                        <li onClick={()=> setGenreId('10752')}>
+                            Guerra
+                        </li>
+                        <li onClick={()=> setGenreId('36')}>
+                            História
+                        </li>
+                        <li onClick={()=> setGenreId('9648')}>
+                            Mistério
+                        </li>
+                        <li onClick={()=> setGenreId('10402')}>
+                            Música
+                        </li>
+                        <li onClick={()=> setGenreId('10749')}>
+                            Romance
+                        </li>
+                        <li onClick={()=> setGenreId('27')}>
+                            Terror
+                        </li>
+                        <li onClick={()=> setGenreId('53')}>
+                            Thriller
+                        </li>
                     </ul>
                 </div>
             </div>     

@@ -18,7 +18,7 @@ export default function TrendingWeekMovie() {
     const image_path = "https://image.tmdb.org/t/p/w500";
 
     useEffect( ()=> {
-        fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apikey}`)
+        fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${apikey}&language=pt-BR&page=1`)
         .then(response => response.json())
         .then(data => setMovieList(data.results));
 

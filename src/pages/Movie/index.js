@@ -14,7 +14,6 @@ export default function Movie() {
 
     const [movies, setMovies] = useState([]);
     const [moviesList, setMoviesList] = useState([]);
-    // const [pageCount, setPageCount] = useState(1);
     const pageCount = useRef(0);
 
     const [valueCHa, setValueCha] = useState();
@@ -44,6 +43,7 @@ export default function Movie() {
                     setFilterList('popularity.desc')
                     break;
             }
+            
         }
 
         changeValueFunciton()
@@ -52,7 +52,6 @@ export default function Movie() {
 
     const loadMovies = () => {
         pageCount.current = pageCount.current + 1;
-        console.log(pageCount)
         setMoviesList( [...moviesList, <MoreMovie page={pageCount.current} genre={genreId} filter={filterList}/>])
     }
 
@@ -71,61 +70,61 @@ export default function Movie() {
                 <div className="filter-genrer">
                     <h2>Gêneros</h2>
                     <ul className="filter-genrer-list" >
-                        <li onClick={()=> setGenreId('16')}>
+                        <li onClick={()=> {setGenreId('16'); setMoviesList([]);}}>
                             Animação
                         </li>
-                        <li onClick={()=> setGenreId('12')}>
+                        <li onClick={()=> {setGenreId('12'); setMoviesList([])}}>
                             Aventura
                         </li>
-                        <li onClick={()=> setGenreId('28')}>
+                        <li onClick={()=> {setGenreId('28'); setMoviesList([])}}>
                             Ação
                         </li>
-                        <li onClick={()=> setGenreId('10770')}>
+                        <li onClick={()=> {setGenreId('10770'); setMoviesList([])}}>
                             Cinema Tv
                         </li>
-                        <li onClick={()=> setGenreId('35')}>
+                        <li onClick={()=> {setGenreId('35'); setMoviesList([])}}>
                             Comédia
                         </li>
-                        <li onClick={()=> setGenreId('80')}>
+                        <li onClick={()=> {setGenreId('80'); setMoviesList([])}}>
                             Crime
                         </li>
-                        <li onClick={()=> setGenreId('99')}>
+                        <li onClick={()=> {setGenreId('99'); setMoviesList([])}}>
                             Documentário
                         </li>
-                        <li onClick={()=> setGenreId('18')}>
+                        <li onClick={()=> {setGenreId('18'); setMoviesList([])}}>
                             Drama
                         </li>
-                        <li onClick={()=> setGenreId('10751')}>
+                        <li onClick={()=> {setGenreId('10751'); setMoviesList([])}}>
                             Família
                         </li>
-                        <li onClick={()=> setGenreId('14')}>
+                        <li onClick={()=> {setGenreId('14'); setMoviesList([])}}>
                             Fantasia
                         </li>
-                        <li onClick={()=> setGenreId('37')}>
+                        <li onClick={()=> {setGenreId('37'); setMoviesList([])}}>
                             Faroeste
                         </li>
-                        <li onClick={()=> setGenreId('878')}>
+                        <li onClick={()=> {setGenreId('878'); setMoviesList([])}}>
                             Sci-Fi
                         </li>
-                        <li onClick={()=> setGenreId('10752')}>
+                        <li onClick={()=> {setGenreId('10752'); setMoviesList([])}}>
                             Guerra
                         </li>
-                        <li onClick={()=> setGenreId('36')}>
+                        <li onClick={()=> {setGenreId('36'); setMoviesList([])}}>
                             História
                         </li>
-                        <li onClick={()=> setGenreId('9648')}>
+                        <li onClick={()=> {setGenreId('9648'); setMoviesList([])}}>
                             Mistério
                         </li>
-                        <li onClick={()=> setGenreId('10402')}>
+                        <li onClick={()=> {setGenreId('10402'); setMoviesList([])}}>
                             Música
                         </li>
-                        <li onClick={()=> setGenreId('10749')}>
+                        <li onClick={()=> {setGenreId('10749'); setMoviesList([])}}>
                             Romance
                         </li>
-                        <li onClick={()=> setGenreId('27')}>
+                        <li onClick={()=> {setGenreId('27'); setMoviesList([])}}>
                             Terror
                         </li>
-                        <li onClick={()=> setGenreId('53')}>
+                        <li onClick={()=> {setGenreId('53'); setMoviesList([])}}>
                             Thriller
                         </li>
                     </ul>

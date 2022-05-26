@@ -195,8 +195,7 @@ export default function Movie() {
                 {moviesList.map(movie => {
                     return <>{movie}</>
                 })}
-                {/* <MoreMovie genre={genreId} filter={filterList}/> */}
-                <button onClick={loadMovies}>Carregar mais</button>
+                <button className="loadMore" onClick={loadMovies}>Carregar mais</button>
             </div>
             </div>
         </div>

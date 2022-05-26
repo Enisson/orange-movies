@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import BannerTv from "../../components/BannerTv";
 import { apikey } from "../../config/Key";
+import MoreTv from "./MoreTv";
 
 import './styles.css';
 
@@ -9,6 +10,8 @@ import './styles.css';
 export default function Tv() {
 
     const [movies, setMovies] = useState([]);
+    const [tvList, setTvList] = useState([]);
+    const pageCount = useRef(0);
     const [valueCHa, setValueCha] = useState();
     const [genreId, setGenreId] = useState();
 
@@ -24,6 +27,8 @@ export default function Tv() {
         .then(data => {
             setMovies(data.results)
         });
+
+        pageCount.current = 1;
 
         const changeValueFunciton = () => {
             switch (valueCHa) {
@@ -42,6 +47,11 @@ export default function Tv() {
         changeValueFunciton()
     }, [valueCHa, filterList, genreId] );
 
+    const loadTvShow = () => {
+        pageCount.current = pageCount.current + 1;
+        setTvList( [...tvList, <MoreTv page={pageCount.current} genre={genreId} filter={filterList} />] )
+    }
+
     return (
         <div>
             <BannerTv />
@@ -57,61 +67,61 @@ export default function Tv() {
                 <div className="filter-genrer">
                     <h2>Gêneros</h2>
                     <ul className="filter-genrer-list">
-                    <li onClick={()=> setGenreId('16')}>
+                    <li onClick={()=> {setGenreId('16'); setTvList([])}}>
                             Animação
                         </li>
-                        <li onClick={()=> setGenreId('12')}>
+                        <li onClick={()=> {setGenreId('12'); setTvList([])}}>
                             Aventura
                         </li>
-                        <li onClick={()=> setGenreId('28')}>
+                        <li onClick={()=> {setGenreId('28'); setTvList([])}}>
                             Ação
                         </li>
-                        <li onClick={()=> setGenreId('10770')}>
+                        <li onClick={()=> {setGenreId('10770'); setTvList([])}}>
                             Cinema Tv
                         </li>
-                        <li onClick={()=> setGenreId('35')}>
+                        <li onClick={()=> {setGenreId('35'); setTvList([])}}>
                             Comédia
                         </li>
-                        <li onClick={()=> setGenreId('80')}>
+                        <li onClick={()=> {setGenreId('80'); setTvList([])}}>
                             Crime
                         </li>
-                        <li onClick={()=> setGenreId('99')}>
+                        <li onClick={()=> {setGenreId('99'); setTvList([])}}>
                             Documentário
                         </li>
-                        <li onClick={()=> setGenreId('18')}>
+                        <li onClick={()=> {setGenreId('18'); setTvList([])}}>
                             Drama
                         </li>
-                        <li onClick={()=> setGenreId('10751')}>
+                        <li onClick={()=> {setGenreId('10751'); setTvList([])}}>
                             Família
                         </li>
-                        <li onClick={()=> setGenreId('14')}>
+                        <li onClick={()=> {setGenreId('14'); setTvList([])}}>
                             Fantasia
                         </li>
-                        <li onClick={()=> setGenreId('37')}>
+                        <li onClick={()=> {setGenreId('37'); setTvList([])}}>
                             Faroeste
                         </li>
-                        <li onClick={()=> setGenreId('878')}>
+                        <li onClick={()=> {setGenreId('878'); setTvList([])}}>
                             Sci-Fi
                         </li>
-                        <li onClick={()=> setGenreId('10752')}>
+                        <li onClick={()=> {setGenreId('10752'); setTvList([])}}>
                             Guerra
                         </li>
-                        <li onClick={()=> setGenreId('36')}>
+                        <li onClick={()=> {setGenreId('36'); setTvList([])}}>
                             História
                         </li>
-                        <li onClick={()=> setGenreId('9648')}>
+                        <li onClick={()=> {setGenreId('9648'); setTvList([])}}>
                             Mistério
                         </li>
-                        <li onClick={()=> setGenreId('10402')}>
+                        <li onClick={()=> {setGenreId('10402'); setTvList([])}}>
                             Música
                         </li>
-                        <li onClick={()=> setGenreId('10749')}>
+                        <li onClick={()=> {setGenreId('10749'); setTvList([])}}>
                             Romance
                         </li>
-                        <li onClick={()=> setGenreId('27')}>
+                        <li onClick={()=> {setGenreId('27'); setTvList([])}}>
                             Terror
                         </li>
-                        <li onClick={()=> setGenreId('53')}>
+                        <li onClick={()=> {setGenreId('53'); setTvList([])}}>
                             Thriller
                         </li>
                     </ul>
@@ -179,6 +189,11 @@ export default function Tv() {
                     </div>
                     );
                 })}
+
+                {tvList.map(tv => {
+                    return <>{tv}</>
+                })}
+                <button className="loadMore" onClick={loadTvShow}>Carregar mais</button>
             </div>
             </div>
         </div>

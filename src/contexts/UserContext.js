@@ -142,6 +142,7 @@ export const UserContextProvider = ({ children }) => {
             forgotPassword,
             logoutUser,
             storageContent,
+            
         }}>
             { children }
         </UserContext.Provider>

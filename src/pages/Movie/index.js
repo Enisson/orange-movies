@@ -1,14 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../../components/Banner";
 import { apikey } from "../../config/Key";
+
+import MoreMovie from "./MoreMovie";
 
 import './styles.css';
 
 
 export default function Movie() {
 
+
+
     const [movies, setMovies] = useState([]);
+    const [moviesList, setMoviesList] = useState([]);
+    // const [pageCount, setPageCount] = useState(1);
+    const pageCount = useRef(0);
+
     const [valueCHa, setValueCha] = useState();
     const [genreId, setGenreId] = useState();
     const [filterList, setFilterList] = useState('popularity.desc');
@@ -22,6 +30,8 @@ export default function Movie() {
             setMovies(data.results)
         });
 
+        pageCount.current = 1;
+        
         const changeValueFunciton = () => {
             switch (valueCHa) {
                 case 'Maior popularidade':
@@ -39,6 +49,12 @@ export default function Movie() {
         changeValueFunciton()
 
     }, [filterList, valueCHa, genreId] );
+
+    const loadMovies = () => {
+        pageCount.current = pageCount.current + 1;
+        console.log(pageCount)
+        setMoviesList( [...moviesList, <MoreMovie page={pageCount.current} genre={genreId} filter={filterList}/>])
+    }
 
     return (
         <div>
@@ -177,6 +193,11 @@ export default function Movie() {
                     </div>
                     );
                 })}
+                {moviesList.map(movie => {
+                    return <>{movie}</>
+                })}
+                {/* <MoreMovie genre={genreId} filter={filterList}/> */}
+                <button onClick={loadMovies}>Carregar mais</button>
             </div>
             </div>
         </div>

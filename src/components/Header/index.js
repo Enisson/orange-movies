@@ -9,7 +9,7 @@ import { UserContext } from "../../contexts/UserContext";
 
 import avatar from "../../assets/avatar.png";
 
-export default function Header() {
+export default function Header(props) {
   const { user, userData } = useContext(UserContext);
 
   return (
@@ -20,14 +20,14 @@ export default function Header() {
             <img src={Logo} alt="Orange movies" />
           </a>
           <nav className="menubar">
-            <ul>
-              <li>
+            <ul className="nav-list">
+              <li onClick={()=> props.isMobile && props.closeMobileMenu()}>
                 <Link to={"/movies"}>Filmes</Link>
               </li>
-              <li>
+              <li onClick={()=> props.isMobile && props.closeMobileMenu()}>
                 <Link to={"/tv"}>Séries</Link>
               </li>
-              <li>
+              <li onClick={()=> props.isMobile && props.closeMobileMenu()}>
                 <Link to={"/about"}>Sobre</Link>
               </li>
             </ul>

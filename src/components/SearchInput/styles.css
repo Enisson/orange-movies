@@ -1,6 +1,6 @@
 .header-content form {
     margin-top: 0;
-    width: 500px;
+    max-width: 500px;
     height: 21px;
     z-index: 99;
     overflow: hidden;
@@ -49,4 +49,27 @@
     text-overflow: ellipsis;
     overflow: hidden;
     margin-top: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .header-content form {
+        
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        
+        z-index: 9999;
+    }
+
+    .header-content form:focus-within {
+        margin-top: 0;
+    }
+
+    .header-content form input {
+        max-width: 300px;
+        border-bottom: none;
+        padding: 2px 5px;
+        border-radius: 3px;
+    }
+
 }

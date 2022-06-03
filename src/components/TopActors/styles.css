@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-between;    
     padding: 5px 10px;
+    
 }
 
 .top-actors-container .top-actor-actress__item:hover {
@@ -24,16 +25,17 @@
     overflow: hidden;
     margin-bottom: 10px;
     border: 2px solid #38D934;
+    background-color: white;
 }
 
 .top-actors-container .top-actor-actress__item  img {
-    width: 100%;
+    height: 100%;
 }
 
 .top-actors-container .top-actor-actress__item h3 {
     font-weight: 300;
     margin: 0 20px;
-    width: 300px;
+    max-width: 300px;
     border-bottom: 1px dotted white;
     text-align: right;
 }

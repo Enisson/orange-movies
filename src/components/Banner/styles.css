@@ -46,3 +46,24 @@
     border: 2px solid #38D934;
     padding: 5px;
 }
+
+@media(max-width: 800px) {
+    .banner-container {
+        position: relative;
+    }
+    
+    .banner-container .banner-content {
+        margin: 0 !important; 
+        position: absolute;
+        padding: 10px;
+        left: 0;
+        bottom: 0;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.274); 
+    }
+
+    .banner-container .banner-content h2{
+        margin-bottom: 1rem;
+    }
+  
+}

@@ -43,3 +43,16 @@
     flex-wrap: wrap;
     
 }
+
+@media (max-width: 1250px) {
+    .newsletter-container  .newsletter {
+        flex-wrap: wrap;
+    } 
+}
+
+@media (max-width: 500px){
+    .newsletter-container .trailers-container .trailers .movie{
+        margin: 0 auto;
+        margin-bottom: 1rem;
+    }
+}

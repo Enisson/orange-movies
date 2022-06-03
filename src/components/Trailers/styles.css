@@ -1,5 +1,5 @@
 .trailers-content {
-    width: 676px;
+    max-width: 676px;
     height: 192px;
     display: flex;
     margin: 10px 0;
@@ -63,3 +63,28 @@
     z-index: 9999999;
 }
 
+@media (max-width: 800px){
+    .trailers-content .movie-content p {
+        max-width: 250px;
+        
+    }
+}
+
+@media (max-width: 500px){
+    .trailers-content .movie-content p{
+        display: none;
+    }
+
+    .trailers-content {
+        position: relative;
+                
+    }
+
+    .trailers-content .movie-content h4 {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        font-size: 1rem;
+        margin: 0;
+    }
+}

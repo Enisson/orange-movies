@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Banner from "../../components/Banner";
 import CarouselPopular from "../../components/CarouselPopular";
 import CarouselSeries from "../../components/CarouselSeries";
@@ -23,7 +24,9 @@ export default function Home() {
             <div className="title-container">
                 <div className="title">
                     <h1>Os mais populares</h1>
-                    <span>ver mais</span>
+                    {isMovie ? <Link to={'/movies'}>ver mais</Link> : <Link to={'/tv'}>ver mais</Link>}
+                    
+                    
                 </div>
                 <div className="movie-link">
                     <span className={`gener ${isMovie ? "gener-active" : "gener"}`} onClick={()=> setIsMovie(true)}>Filmes</span>
@@ -36,7 +39,6 @@ export default function Home() {
             <div className="title-container">
                 <div className="title">
                     <h1>Filmes em cartaz</h1>
-                    <span>ver mais</span>
                 </div>
                 
             </div>
@@ -46,7 +48,6 @@ export default function Home() {
             <div className="title-container">
                 <div className="title">
                     <h1>Tendências da semana</h1>
-                    <span>ver mais</span>
                 </div>
                 <div className="movie-link">
                     <span className={`gener ${isTvShow ? "gener-active" : "gener"}`} onClick={()=> setIsTvShow(true)}>Filmes</span>

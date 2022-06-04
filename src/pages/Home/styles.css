@@ -33,15 +33,18 @@
     background-color: #FF8001;
 }
 
-.home .title span {
+.home .title a {
     border: 2px solid #FF8001;
     font-weight: bold; 
     height: 55px;
     padding: 18px;
     cursor: pointer;
+    color: #363231;
 }
 
-.home .title span:hover {
+
+
+.home .title a:hover {
     color: #FF8001;
 }
 
@@ -61,3 +64,21 @@
     top: 0;
     background-color: #FF8001;
 } 
+
+@media(max-width: 800px){
+    .title-container {
+        flex-wrap: wrap;
+    }
+    .home .title h1 {
+        font-size: 1rem;
+        width: 220px;
+        padding-left: 10px;
+    }
+    .home .title a {
+        display: none;
+    }
+    .home .movie-link  {
+        margin: 2rem 0;
+        margin-left: 10px;
+    }
+}

@@ -66,6 +66,9 @@
 } 
 
 @media(max-width: 800px){
+    .home {
+        overflow-x: hidden;
+    }
     .title-container {
         flex-wrap: wrap;
     }

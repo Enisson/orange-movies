@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../../components/Banner";
 import { apikey } from "../../config/Key";
+import filter from '../../assets/bxs-filter-alt.svg';
 
 import MoreMovie from "./MoreMovie";
 
@@ -55,11 +56,47 @@ export default function Movie() {
         setMoviesList( [...moviesList, <MoreMovie page={pageCount.current} genre={genreId} filter={filterList}/>])
     }
 
+    const [btnToggle, setBtnToggle] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [className, setClassName] = useState();
+
+
+    useEffect(()=>{
+        const getWindowWidth = ()=> {
+            
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', getWindowWidth)
+
+        if(windowWidth > 800){
+            setClassName('filter')
+        } else {
+            if(windowWidth <= 800 && btnToggle){
+                        setClassName('filter')
+                    } else {
+                        setClassName('filter-close')
+                    }
+        }
+        
+        
+    },[windowWidth, btnToggle])
+
+    const filterFunciton = () => {
+        setBtnToggle(!btnToggle);
+        
+    }
+
+
     return (
+
         <div>
             <Banner />
             <div className="movies-container"> 
-            <div className="filter">
+            <span className="filter-button" onClick={filterFunciton}>
+                <img src={filter} alt={filter}/>
+                <p>Filtrar conteúdo</p>
+            </span>
+            <div className={`${className}`}>
                 <form>
                     <label>Ordenar por</label>
                     <select name="movies" onChange={(e)=> setValueCha(e.target.value)}>

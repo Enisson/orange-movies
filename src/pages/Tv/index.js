@@ -4,6 +4,8 @@ import BannerTv from "../../components/BannerTv";
 import { apikey } from "../../config/Key";
 import MoreTv from "./MoreTv";
 
+import filter from '../../assets/bxs-filter-alt.svg';
+
 import './styles.css';
 
 
@@ -52,11 +54,45 @@ export default function Tv() {
         setTvList( [...tvList, <MoreTv page={pageCount.current} genre={genreId} filter={filterList} />] )
     }
 
+    const [btnToggle, setBtnToggle] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [className, setClassName] = useState();
+
+
+    useEffect(()=>{
+        const getWindowWidth = ()=> {
+            
+            setWindowWidth(window.innerWidth)
+        }
+        window.addEventListener('resize', getWindowWidth)
+
+        if(windowWidth > 800){
+            setClassName('filter')
+        } else {
+            if(windowWidth <= 800 && btnToggle){
+                        setClassName('filter')
+                    } else {
+                        setClassName('filter-close')
+                    }
+        }
+        
+        
+    },[windowWidth, btnToggle])
+
+    const filterFunciton = () => {
+        setBtnToggle(!btnToggle);
+        
+    }
+
     return (
         <div>
             <BannerTv />
             <div className="movies-container"> 
-            <div className="filter">
+            <span className="filter-button" onClick={filterFunciton}>
+                <img src={filter} alt={filter}/>
+                <p>Filtrar conteúdo</p>
+            </span>
+            <div className={className}>
                 <form>
                     <label>Ordenar por</label>
                     <select  name="movies" onChange={(e)=>setValueCha(e.target.value)}>

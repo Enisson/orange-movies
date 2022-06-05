@@ -17,3 +17,17 @@
 .footer a:hover {
     color: rgb(201, 201, 201);
 }
+
+@media(max-width:800px){
+    .footer {
+        text-align: center;
+        padding: 10px 5rem;
+    }
+    .footer a {
+        width: 150px;
+    }
+
+    .footer a img {
+        width: 100%;
+    }
+}

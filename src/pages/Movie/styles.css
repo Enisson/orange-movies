@@ -157,6 +157,7 @@
 
     .movies-container .carousel {
         padding: 10px 0 !important;
+        justify-content: center;
     }
 
     .movies-container .item {

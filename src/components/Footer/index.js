@@ -7,7 +7,7 @@ export default function Footer() {
             <a href='/'>
                 <img src={whiteLogo} alt="Logo" />
             </a>
-            <p>© Copyright Orange Movies 2022 - Todos os direitos reservados</p>
+            <p>© Copyright Orange Movies 2022 - Todos os direitos reservados.</p>
             <p>Desenvolvido por <a href='https://www.linkedin.com/in/enisson-lemos/' target={'_blank'} rel='noreferrer'>Enisson Lemos</a></p>
         </div>
     );

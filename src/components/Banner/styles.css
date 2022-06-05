@@ -48,6 +48,12 @@
 }
 
 @media(max-width: 800px) {
+    .banner-container .banner-content h1 {
+        font-size: 1rem;
+    }
+    .banner-container  h2 {
+        height: 50px;
+    }
     .banner-container {
         position: relative;
     }

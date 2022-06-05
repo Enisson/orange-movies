@@ -20,7 +20,6 @@
 
 .banner-container .img-container img {
     height: 150%;
-    
 }
 
 .banner-container .banner-content {
@@ -56,6 +55,14 @@
     }
     .banner-container {
         position: relative;
+    }
+
+    
+
+    .banner-container .img-container img {
+        width: 100%;
+        object-fit: contain;
+        margin-bottom: -4.1rem;
     }
     
     .banner-container .banner-content {

@@ -71,6 +71,10 @@
 }
 
 @media (max-width: 500px){
+    .trailers-content .video {
+        width: 90%;
+        height: 250px;
+    }
     .trailers-content .movie-content p{
         display: none;
     }

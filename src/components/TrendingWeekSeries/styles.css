@@ -1,4 +1,4 @@
-.trending-container {
+.trending-tv-container {
     max-width: 1220px;
     background-color: white;
     margin: 0 auto;
@@ -6,7 +6,7 @@
 }
 
 
-.trending-container .carousel {
+.trending-tv-container .carousel {
     display: flex;
     width: 100%;
     overflow-x: hidden;
@@ -15,33 +15,33 @@
     padding-top: 0;
 }
 
-.trending-container .item {
+.trending-tv-container .item {
     margin: 0 10px;
     text-align: left;
     position: relative;
 }
 
-.trending-container .item img {
+.trending-tv-container .item img {
     width: 220px;
     height: 330px;
 }
 
-.trending-container .item .release {
+.trending-tv-container .item .release {
     color: #FF8001;
     font-weight: bold;
     margin-right: 1rem;
 }
 
-.trending-container .item .genre {
+.trending-tv-container .item .genre {
     color: #FF8001;
     font-weight: bold;
 }
 
-.trending-container .item .movie-title {
+.trending-tv-container .item .movie-title {
 font-size: .8rem;
 }
 
-.trending-container .item .tv-popularity {
+.trending-tv-container .item .tv-popularity {
     position: absolute;
     bottom: 36px;
     right: -5px;
@@ -52,7 +52,7 @@ font-size: .8rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.trending-container .item .tv-less {
+.trending-tv-container .item .tv-less {
     background-color: #E23B07;
     position: absolute;
     bottom: 36px;
@@ -63,7 +63,7 @@ font-size: .8rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.trending-container .item .tv-high {
+.trending-tv-container .item .tv-high {
     background-color: #16C632;
     position: absolute;
     bottom: 36px;
@@ -79,7 +79,7 @@ font-size: .8rem;
 /* BUTTONS
 /**********************************/
 
-.trending-container .buttons button{
+.trending-tv-container .buttons button{
     background-color: transparent;
     width: 50px;
     height: 50px;
@@ -87,7 +87,7 @@ font-size: .8rem;
     cursor: pointer;
 }
 
-.trending-container .buttons button img {
+.trending-tv-container .buttons button img {
     padding: 13px 20px;
     background-color: #FF8001;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -95,18 +95,42 @@ font-size: .8rem;
 
 }
 
-.trending-container .buttons button {
+.trending-tv-container .buttons button {
     position: absolute;
     top: 35%;
     right: -10px;
 }
 
-.trending-container .buttons .arrow-left {
+.trending-tv-container .buttons .arrow-left {
     left: -10px;
 }
 
-.trending-container .buttons button:active {
+.trending-tv-container .buttons button:active {
     transform: scale(1.05);
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.25);
 
+}
+
+@media (max-width: 800px) {
+    .trending-tv-container .carousel {
+        padding: 5px !important;
+        height: 300px;
+    }
+    .trending-tv-container .item {
+        width: 115px !important;
+        height: 215px !important;
+        margin: 5px !important;
+    }
+
+    .trending-tv-container .item img {
+        width: 115px !important;
+        height: 175px !important;
+    }
+
+    .trending-tv-container .buttons button {
+        height: 25px;
+        width: 25px;
+        top: 25% !important;
+        right: 20px;
+    }
 }

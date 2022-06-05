@@ -66,7 +66,7 @@ export default function TrendingWeekSeries() {
     }
 
     return(
-        <div className="trending-container">      
+        <div className="trending-tv-container">      
             <div className="carousel" ref={carousel}>
                 {movieList.map( movie => {
 

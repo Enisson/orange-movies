@@ -139,7 +139,7 @@
     color: white;
     border: none;
     margin: 0 auto;
-    width: 500px;
+    max-width: 500px;
     height: 50px;
     font-weight: 700;
     font-size: large;
@@ -153,5 +153,24 @@
         position: absolute;
         left: -300px;
         z-index: 88;
+    }
+
+    .movies-container .carousel {
+        padding: 10px 0 !important;
+    }
+
+    .movies-container .item {
+        width: 115px !important;
+        height: 245px !important;
+        margin: 5px !important;
+    }
+
+    .movies-container .item img {
+        width: 115px !important;
+        height: 175px !important;
+    }
+
+    .movies-container .loadMore {
+        width: 90%;
     }
 }

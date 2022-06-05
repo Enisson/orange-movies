@@ -84,4 +84,8 @@
         margin: 2rem 0;
 
     }
+
+    .home .title-container {
+        padding-top: 1rem;
+    }
 }

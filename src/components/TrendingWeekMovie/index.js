@@ -40,7 +40,7 @@ export default function TrendingWeekMovie() {
             leftArrow.current.style.display = 'none';
         }
 
-        if(count.current <= 2) {
+        if(count.current <= 5) {
             rightArrow.current.style.display = 'block';
 
         }
@@ -55,14 +55,25 @@ export default function TrendingWeekMovie() {
         count.current = count.current +1;
 
 
-        if(count.current >= 3) {
-            rightArrow.current.style.display = 'none';
-        }
+        if(window.innerWidth < 500){ 
+            if(count.current >= 6) {
+                rightArrow.current.style.display = 'none';
+            }
+    
+            if(count.current >= 1) {
+                leftArrow.current.style.display = 'block';
+    
+            }
+    } else {
+    if(count.current >= 3) {
+        rightArrow.current.style.display = 'none';
+    }
 
-        if(count.current >= 1) {
-            leftArrow.current.style.display = 'block';
+    if(count.current >= 1) {
+        leftArrow.current.style.display = 'block';
 
-        }
+    }
+}
     }
 
     return(

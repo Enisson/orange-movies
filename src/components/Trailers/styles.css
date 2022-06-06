@@ -86,7 +86,11 @@
 
     .trailers-content {
         position: relative;
-                
+        max-height: 200px !important;
+    }
+    .trailers-content  img {
+        max-height: 200px !important;
+        object-fit: cover;
     }
 
     .trailers-content .movie-content h4 {

@@ -13,6 +13,7 @@
 .details-container .backposter img {
     max-width: 100%;
     opacity: 60%;
+    object-fit: cover;
     transform: translateY(-20%);
 }
 
@@ -224,17 +225,26 @@
     width: 100%;
 }
 
+@media (max-width:1120px) {
+    .details-container .movie-details .movie-title {
+        font-size: 1rem;
+    }
+    .details-container .backposter img {
+        margin-top: 8rem;
+    }
+}
+
 @media (max-width: 890px) {
     .details-container {
         overflow-x: hidden;
     }
     .details-container .backposter {
-        height: 300px;
+        height: 260px;
     }
     .details-container .backposter img  {
-        margin-top: 8.2rem;
-        width: 100%;
-        object-fit: contain;
+        margin-top: 7.1rem;
+        max-width: 100%;
+        object-fit: cover;
     }
     .details-container .movie-poster {
         top: -10.8rem;
@@ -244,10 +254,13 @@
     }
     .details-container .movie-info .movie-details {
         margin-left: 8rem;
+        top: -11rem;
     }
 
     .details-container .movie-details .movie-title {
         font-size: 1rem;
+        line-height: normal;
+        text-align: left;
     }
     .details-container .movie-overview-container {
         grid-template-columns: auto;

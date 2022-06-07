@@ -1,5 +1,5 @@
 .similar-container {
-    width: 440px;
+    max-width: 440px;
     height: 1123px;
     overflow-y: auto;
     margin: 0 auto;
@@ -24,10 +24,11 @@
     .similar-container {
         overflow-y: hidden !important;
         overflow-x: auto;
-        width: 800px !important;
+        max-width: 800px !important;
         height: 195px !important;
         flex-wrap: nowrap !important;
         margin: 0 !important;
+        width: 440px;
     }
     .similar-container li img {
         width: 115px !important;

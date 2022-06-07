@@ -104,6 +104,9 @@
 }
 
 @media (max-width:800px) {
+    .signup-container .signup {
+        margin-bottom: 1rem;
+    }
     .signup-container .welcome {
         font-size: 2rem;
     }

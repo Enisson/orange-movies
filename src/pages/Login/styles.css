@@ -67,3 +67,13 @@
     color: #FF8001;
     cursor: pointer;
 }
+
+@media (max-width:800px) {
+    .login-container .welcome {
+        font-size: 2rem;
+    }
+    .login-container form h1  {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+}

@@ -6,7 +6,14 @@
     height: 200px;
     display: flex;
     margin-bottom: 10px;
+    color: #363231;
 }
+
+.favmovie-container:hover {
+    color: #363231;
+    background-color: #D7D7D7;
+}
+
 .favmovie-container .img-container {
     height: 200px;
     margin-right: 30px;
@@ -59,15 +66,18 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.favmovie-container .favmovie-content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 @media(max-width:800px){
     .favmovie-container .favmovie-content h1{
         font-size: 1rem;
         width: 209px;
         
-    }
-
-    .favmovie-container .favmovie-content p {
-        height: 75px;
-        overflow-y: auto;
     }
 }

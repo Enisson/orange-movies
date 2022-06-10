@@ -1,7 +1,7 @@
-import { async } from "@firebase/util";
 import { useContext, useEffect, useState } from "react";
 import { apikey } from "../../config/Key";
 import { UserContext } from "../../contexts/UserContext";
+import { Link } from "react-router-dom";
 
 import "./styles.css";
 
@@ -64,7 +64,7 @@ export default function FavMovie({ id }) {
 if(movie !== undefined){
 
   return (
-  <div className="favmovie-container">
+  <Link to={`/details/movie/${id}`} className="favmovie-container">
     <div className="img-container">
     <img src={movie.image} alt={movie.title} />
   </div>
@@ -76,10 +76,9 @@ if(movie !== undefined){
     </div>
     <p>{movie.overview}</p>
   </div>
-  </div>
+  </Link>
   );
 }
-
-  
+ 
 }
   

@@ -115,3 +115,35 @@
     top: 0;
     background-color: #FF8001;
 } 
+
+@media(max-width:800px){
+    .profile-header-container .profile-container div {
+        height: 5rem;
+        width: 5rem;
+        font-size: .8rem;
+    }
+
+    .profile-content h1 {
+        font-size: 1rem;
+    }
+
+    .profile-content button {
+        font-size: .8rem;
+    }
+    .dashboard-container .title h1 {
+        font-size: 1rem;
+        width: 220px;
+        padding-left: 10px;
+    }
+    .dashboard-container .title a {
+        display: none;
+    }
+    .dashboard-container .movie-link  {
+        margin: 2rem 0;
+
+    }
+
+    .dashboard-container .title-container {
+        padding-top: 1rem;
+    }
+}

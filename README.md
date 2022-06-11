@@ -1,19 +1,5 @@
 # Orange movies
 
-Projeto ainda está em desenvolvimento mas você já consegue aproveitar algumas funcionalidades do site como:
-<ul>
-  <li>Se cadastrar no site</li>
-  <li>Adicionar filmes em sua lista de favoritos</li>
-  <li>Ver informações detalhadas de um filme</li>
-  <li>Conferir os trailers mais recentes</li>
-  <li>Filtrar filmes por tipo e gênero</li>
-  <li>Pesquisar por filmes na barra de pesquisa</li>
-  <li>Ver os filmes em cartaz</li>
-  <li>Os atores e atrizes mais bem avaliados</li>
-</ul>
-
-Readme Atualizado conforme o avanço do mesmo.
-
 ## Deploy
 Deploy realizado na vercel. Link do site ativo: https://orange-movies.vercel.app
 
@@ -33,8 +19,6 @@ Orange movies é um site com filmes e séries onde você poderá saber mais info
 Para uma melhor organização do projeto, estou fazendo uso da ferramenta trello.
 
 ![image](https://user-images.githubusercontent.com/70671093/169669286-f7646f5c-e12a-4cd0-9779-5027c2b0d721.png)
-
-
 
 
 ## Figma
